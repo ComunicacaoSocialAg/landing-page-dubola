@@ -146,8 +146,14 @@ export default function DubolaB2BView() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Dynamic Fonts & Scroll Load
+  // Dynamic Fonts & Scroll Reset/Load
   useEffect(() => {
+    // Force browser to start at top of page on reload/mount
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+    window.scrollTo(0, 0);
+
     // Fonts
     const link = document.createElement('link');
     link.rel = 'stylesheet';
@@ -161,6 +167,8 @@ export default function DubolaB2BView() {
       smoothWheel: true,
     });
     lenis.on('scroll', ScrollTrigger.update);
+    lenis.scrollTo(0, { immediate: true });
+    
     const raf = (time) => { lenis.raf(time); requestAnimationFrame(raf); };
     requestAnimationFrame(raf);
 
@@ -1717,65 +1725,7 @@ Gostaria de solicitar proposta B2B para:
         </div>
       </section>
 
-      {/* ── B2B TESTIMONIALS SECTION ── */}
-      <section className={`py-24 border-t ${isDarkMode ? 'border-white/[0.04] bg-black' : 'border-zinc-200/60 bg-[#fbfbfa]'} relative z-10 px-6 sm:px-12`}>
-        <div className="max-w-7xl mx-auto space-y-16">
-          
-          <div className="text-center space-y-4">
-            <p className="text-[9px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">CASOS DE SUCESSO</p>
-            <h2 className={`font-display text-2xl sm:text-4xl font-black uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Dubola nas Cozinhas de Alto Giro</h2>
-            <div className="w-12 h-1 bg-[#ff003c] mx-auto rounded-full" />
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className={`${isDarkMode ? 'glass-premium border-white/[0.03]' : 'bg-white border-zinc-200 shadow-sm'} p-8 rounded-3xl border text-left flex flex-col justify-between min-h-[220px]`}>
-              <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'} leading-relaxed font-sans-premium italic`}>
-                "Substituímos toda a nossa linha de mostardas e barbecues industriais pela Dubola. A estabilidade térmica deles na chapa é bizarra. Não separa água e a viscosidade é perfeita nas bombas automáticas. Clientes notaram o upgrade imediatamente."
-              </p>
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-zinc-150'} mt-6 flex items-center gap-3`}>
-                <div className={`w-8 h-8 rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-zinc-200'} flex items-center justify-center font-bold text-[10px] ${isDarkMode ? 'text-white' : 'text-zinc-700'}`}>
-                  MB
-                </div>
-                <div>
-                  <h4 className={`font-space-premium font-bold text-[11px] ${isDarkMode ? 'text-white' : 'text-zinc-800'} uppercase tracking-wider`}>Marcio Bruno</h4>
-                  <p className={`text-[9px] ${isDarkMode ? 'text-zinc-550' : 'text-zinc-500'} font-sans-premium`}>Chef Proprietário - Monster Burger</p>
-                </div>
-              </div>
-            </div>
-
-            <div className={`${isDarkMode ? 'glass-premium border-white/[0.03]' : 'bg-white border-zinc-200 shadow-sm'} p-8 rounded-3xl border text-left flex flex-col justify-between min-h-[220px]`}>
-              <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'} leading-relaxed font-sans-premium italic`}>
-                "Trabalhamos com buffet corporativo de larga escala. O custo-benefício dos baldes de 5kg aliado ao selo Clean Label nos permitiu elevar o tíquete médio dos nossos contratos de catering. A maionese verde é um estouro."
-              </p>
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-zinc-150'} mt-6 flex items-center gap-3`}>
-                <div className={`w-8 h-8 rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-zinc-200'} flex items-center justify-center font-bold text-[10px] ${isDarkMode ? 'text-white' : 'text-zinc-700'}`}>
-                  LD
-                </div>
-                <div>
-                  <h4 className={`font-space-premium font-bold text-[11px] ${isDarkMode ? 'text-white' : 'text-zinc-800'} uppercase tracking-wider`}>Lúcia Dornelles</h4>
-                  <p className={`text-[9px] ${isDarkMode ? 'text-zinc-550' : 'text-zinc-500'} font-sans-premium`}>Diretora de Logística - Express Catering</p>
-                </div>
-              </div>
-            </div>
-
-            <div className={`${isDarkMode ? 'glass-premium border-white/[0.03]' : 'bg-white border-zinc-200 shadow-sm'} p-8 rounded-3xl border text-left flex flex-col justify-between min-h-[220px]`}>
-              <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'} leading-relaxed font-sans-premium italic`}>
-                "Nossa rede de pizzarias artesanais usa o Molho Rústico de Tomate da Dubola como base padrão. Ele vem com pedaços suculentos no ponto ideal de cozimento e acidez equilibrada, poupando dezenas de horas de preparo da nossa equipe."
-              </p>
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-zinc-150'} mt-6 flex items-center gap-3`}>
-                <div className={`w-8 h-8 rounded-full ${isDarkMode ? 'bg-zinc-800' : 'bg-zinc-200'} flex items-center justify-center font-bold text-[10px] ${isDarkMode ? 'text-white' : 'text-zinc-700'}`}>
-                  TC
-                </div>
-                <div>
-                  <h4 className={`font-space-premium font-bold text-[11px] ${isDarkMode ? 'text-white' : 'text-zinc-800'} uppercase tracking-wider`}>Thiago Castanho</h4>
-                  <p className={`text-[9px] ${isDarkMode ? 'text-zinc-550' : 'text-zinc-500'} font-sans-premium`}>Sócio Fundador - Trattoria 98</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
 
       <DubolaFooter forceLight={!isDarkMode} />
 
