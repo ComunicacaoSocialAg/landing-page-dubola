@@ -975,7 +975,9 @@ Gostaria de solicitar proposta B2B para:
                   <span className="text-[8px] font-space-premium font-black text-sky-450 uppercase tracking-widest">LINHA MAIONESE</span>
                   <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Maioneses Especiais</h4>
                   <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    Tradicional, Alho, Defumada, Ervas Finas, Tártaro, Azeitona Preta e Limão Siciliano. Estabilidade lendária com textura cremosa de alta performance.
+                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Feita para valorizar o sabor de cada receita.</span>
+                    <span className="block text-[10px] text-sky-450 font-bold mb-1">Tradicional, Alho, Tártaro, Alho Poró & Ervas Finas</span>
+                    Ingredientes selecionados. Receita autêntica. Feita para quem acredita que uma boa maionese deve completar a receita, nunca a esconder.
                   </p>
                 </div>
               </div>
@@ -1008,7 +1010,8 @@ Gostaria de solicitar proposta B2B para:
                   <span className="text-[8px] font-space-premium font-black text-amber-500 uppercase tracking-widest">LINHA BARBECUE</span>
                   <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Barbecue Premium</h4>
                   <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    Tradicional, com Goiaba e Picante. Defumação equilibrada com dulçor e acidez perfeitamente calibrados para carnes e hambúrgueres.
+                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Sabor marcante, versatilidade e autenticidade para criar novas experiências.</span>
+                    Vários sabores. Muitas oportunidades.
                   </p>
                 </div>
               </div>
@@ -1035,7 +1038,8 @@ Gostaria de solicitar proposta B2B para:
                   <span className="text-[8px] font-space-premium font-black text-yellow-400 uppercase tracking-widest">LINHA MOSTARDA</span>
                   <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Mostardas Especiais</h4>
                   <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    Tradicional, Dijon e com Mel. Sementes selecionadas e processos clássicos que entregam picância elegante e acidez equilibrada.
+                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Equilíbrio entre intensidade e sabor.</span>
+                    Tradicional e Dijon.
                   </p>
                 </div>
               </div>
@@ -1062,7 +1066,9 @@ Gostaria de solicitar proposta B2B para:
                   <span className="text-[8px] font-space-premium font-black text-emerald-400 uppercase tracking-widest">LINHA TOMATE</span>
                   <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Molhos de Tomate</h4>
                   <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    Tradicional ao Sugo, Rústico e Rústico com Ervas Finas e Alho-Poró. Cozimento lento de polpa italiana com pedaços suculentos.
+                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Tomate. Como deve ser. O tomate é o protagonista.</span>
+                    <span className="block text-[10px] text-emerald-400 font-bold mb-1">Tradicional ao Sugo - Tradicional com Pedaços - Rústico com Alho-Poró e Ervas Finas</span>
+                    Acreditamos que um bom molho de tomate começa muito antes da panela. Começa na escolha de ingredientes que respeitam a receita, o cozinheiro e, principalmente, quem vai sentar à mesa.
                   </p>
                 </div>
               </div>
