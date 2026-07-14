@@ -19,6 +19,10 @@
   --color-cs-accent: #8b5cf6; /* Violet 500 */
   --color-cs-text-primary: #f4f4f5; /* Zinc 100 */
   --color-cs-text-secondary: #a1a1aa; /* Zinc 400 */
+  
+  /* Font Family variables for Tailwind v4 */
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-cheddar: 'Cheddar Gothic Rough Regular', 'Cheddar Gothic Rough', 'Bebas Neue', sans-serif;
 }
 
 @layer base {
