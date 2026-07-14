@@ -828,7 +828,7 @@ Gostaria de solicitar proposta B2B para:
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none">
                 O JEITO DUBOLA
               </h2>
-              <div className="absolute -bottom-8 left-full -translate-x-16 sm:-translate-x-24 w-48 sm:w-64 z-20 manifesto-cursive opacity-0">
+              <div className="absolute -bottom-8 left-full -translate-x-2 sm:-translate-x-4 w-48 sm:w-64 z-20 manifesto-cursive opacity-0">
                 <img 
                   src="/como-deve-ser-branco.png" 
                   alt="Como deve ser" 
