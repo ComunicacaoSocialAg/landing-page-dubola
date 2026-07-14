@@ -266,25 +266,91 @@ export default function DubolaKetchupsView() {
     return () => video.removeEventListener('loadedmetadata', init);
   }, []);
 
-  /* GSAP – Manifesto tickers */
+  /* GSAP – Manifesto scroll animations */
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.ketchup-ticker-l', { xPercent: 5 }, { xPercent: -40, scrollTrigger: { trigger: manifestoRef.current, start: 'top bottom', end: 'bottom top', scrub: 1.2 } });
-      gsap.fromTo('.ketchup-ticker-r', { xPercent: -40 }, { xPercent: 5, scrollTrigger: { trigger: manifestoRef.current, start: 'top bottom', end: 'bottom top', scrub: 1.2 } });
-      gsap.fromTo('.float-slow', { y: 50 }, { y: -160, rotate: 40, scrollTrigger: { trigger: manifestoRef.current, start: 'top bottom', end: 'bottom top', scrub: 1.8 } });
-      gsap.fromTo('.float-fast', { y: 80 }, { y: -260, rotate: -80, scrollTrigger: { trigger: manifestoRef.current, start: 'top bottom', end: 'bottom top', scrub: 0.9 } });
+      // Header fade-in
+      gsap.fromTo('.manifesto-header', 
+        { y: 30, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Cursive text fade and slight rotation
+      gsap.fromTo('.manifesto-cursive',
+        { scale: 0.8, rotate: -15, opacity: 0 },
+        {
+          scale: 1,
+          rotate: -3,
+          opacity: 1,
+          duration: 1,
+          delay: 0.3,
+          ease: 'back.out(1.7)',
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Header right side text fade-in
+      gsap.fromTo('.manifesto-header-right',
+        { x: 30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Manifesto paragraphs staggered fade-in
+      gsap.fromTo('.manifesto-p',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 65%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Mobile bottles fade-in
+      gsap.fromTo('.manifesto-bottles',
+        { scale: 0.95, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 65%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
     });
     return () => ctx.revert();
   }, []);
-
-  /* Mouse parallax on manifesto */
-  const handleMouseMove = (e) => {
-    if (!floatRef.current) return;
-    const rect = floatRef.current.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 50;
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 50;
-    gsap.to('.mouse-px', { x, y, stagger: 0.04, ease: 'power2.out', duration: 0.8 });
-  };
 
   const handleSubmit = (e) => { e.preventDefault(); setFormSubmitted(true); };
 
@@ -367,76 +433,91 @@ export default function DubolaKetchupsView() {
       <section
         id="manifesto"
         ref={manifestoRef}
-        onMouseMove={handleMouseMove}
-        className="relative py-36 bg-zinc-950/70 overflow-hidden border-t border-white/[0.02] z-10"
+        className="relative w-full overflow-hidden bg-[#62070e] py-20 lg:py-32 px-6 flex items-center z-10 border-t border-white/[0.02]"
       >
-        {/* Parallax tickers */}
-        <div className="absolute top-8 left-0 w-full overflow-hidden opacity-[0.025] select-none pointer-events-none space-y-3">
-          <div className="ketchup-ticker-l font-display font-black text-[10vw] tracking-tighter uppercase whitespace-nowrap text-white">
-            TOMATE PELATI • 100% NATURAL • ZERO CORANTES • ARTESANAL DE AUTOR •
-          </div>
-          <div className="ketchup-ticker-r font-display font-black text-[10vw] tracking-tighter uppercase whitespace-nowrap text-white">
-            GOIABA VERMELHA • HABANERO FRESCO • CLEAN LABEL • TEXTURA ENCORPADA •
-          </div>
+        {/* Background image for desktop (lg) */}
+        <div className="absolute inset-0 hidden lg:block">
+          <img 
+            src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
+            alt="" 
+            className="w-full h-full object-cover object-center pointer-events-none select-none"
+          />
+          {/* Subtle overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-black/5" />
         </div>
 
-        {/* Floating elements */}
-        <div ref={floatRef} className="absolute inset-0 pointer-events-none z-0">
-          <div className="float-slow mouse-px absolute left-[8%] top-[25%] w-20 h-20 flex items-center justify-center bg-red-600/10 border border-red-500/20 rounded-full blur-[2px] opacity-50">
-            <span className="text-3xl">🍅</span>
-          </div>
-          <div className="float-fast mouse-px absolute right-[12%] top-[20%] w-14 h-14 flex items-center justify-center bg-green-600/10 border border-green-500/20 rounded-full blur-[1px] opacity-50">
-            <span className="text-2xl">🌿</span>
-          </div>
-          <div className="float-slow mouse-px absolute left-[18%] bottom-[25%] w-16 h-16 flex items-center justify-center bg-pink-600/10 border border-pink-500/20 rounded-full blur-[2px] opacity-40">
-            <span className="text-2xl">🍑</span>
-          </div>
-          <div className="float-fast mouse-px absolute right-[20%] bottom-[30%] w-12 h-12 flex items-center justify-center bg-orange-600/10 border border-orange-500/20 rounded-full opacity-40">
-            <span className="text-xl">🌶️</span>
-          </div>
-        </div>
+        {/* Background gradient for mobile */}
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-[#62070e] via-[#760811] to-[#b6192c] pointer-events-none select-none" />
 
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 items-center relative z-10">
-          <div className="lg:col-span-6 space-y-7">
-            <div className="inline-flex items-center gap-2 bg-red-600/10 border border-red-600/20 px-3.5 py-1 rounded-full text-red-400">
-              <Leaf size={11} />
-              <span className="text-[9px] font-bold tracking-widest uppercase">Nossa Filosofia</span>
-            </div>
-            <h2 className="font-display text-4xl sm:text-6xl font-black tracking-tight text-white uppercase leading-none">
-              NÃO É UM<br />
-              <span style={{ color: '#ff2a2a' }}>CONDIMENTO.</span><br />
-              É UM INGREDIENTE.
-            </h2>
-            <p className="text-sm sm:text-base text-zinc-400 leading-relaxed">
-              A maioria dos ketchups existe para cobrir o sabor do alimento. Os nossos existem para revelá-lo. Cada frasco começa com uma pergunta simples: <em className="text-zinc-200 not-italic font-medium">"O que esse alimento precisa para se tornar memorável?"</em>
-            </p>
-            <p className="text-sm sm:text-base text-zinc-500 leading-relaxed">
-              Selecionamos tomates nobres na janela exata de maturação. Colhemos goiabas vermelhas no pico do dulçor. Infundimos pimentas frescas — nunca em pó, nunca em extrato. O resultado é um condimento que cozinheiros profissionais usam e chefs debatem.
-            </p>
-            <div className="grid grid-cols-3 gap-6 pt-2">
-              {[['100%', 'Natural & Clean'], ['0%', 'Corantes Artificiais'], ['3', 'Sabores de Autor']].map(([num, label]) => (
-                <div key={label}>
-                  <span className="text-2xl font-black text-red-500">{num}</span>
-                  <p className="text-[10px] text-zinc-500 font-bold uppercase tracking-wider mt-0.5">{label}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 flex justify-center">
-            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden border border-white/5 shadow-2xl group">
-              <img
-                src="/ketchup/trioKetchupDubola vegetais.png"
-                alt="Ketchup Dubola e ingredientes frescos"
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                onError={(e) => { e.target.src = '/ketchup/trioKetchupDubola.png'; }}
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <span className="text-[8px] font-bold text-red-400 uppercase tracking-widest">Ingredientes Frescos, Selecionados</span>
-                <h4 className="text-sm font-bold text-white uppercase mt-0.5">Do campo à sua mesa, sem atalhos.</h4>
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          {/* Header of Section */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-16 gap-6 manifesto-header opacity-0">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <h2 className="font-cheddar text-6xl sm:text-8xl tracking-tight leading-none text-white uppercase select-none">
+                O JEITO DUBOLA
+              </h2>
+              <div className="relative h-16 sm:h-24 flex items-center manifesto-cursive opacity-0">
+                <img 
+                  src="/como-deve-ser-branco.png" 
+                  alt="Como deve ser" 
+                  className="h-full w-auto object-contain transform -rotate-3 select-none"
+                />
               </div>
             </div>
+            
+            <div className="max-w-md lg:text-right manifesto-header-right opacity-0">
+              <p className="font-display text-lg sm:text-2xl leading-tight tracking-wider text-white uppercase">
+                A DUBOLA NASCEU PARA RESGATAR<br />
+                A AUTENTICIDADE DOS SABORES.
+              </p>
+            </div>
+          </div>
+
+          {/* Grid container */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left column: Manifesto text */}
+            <div className="lg:col-span-6 space-y-8 font-display uppercase tracking-wider text-xl md:text-2xl select-none">
+              {/* Paragraph 1 */}
+              <p className="text-zinc-300 font-normal manifesto-p opacity-0">
+                NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
+              </p>
+
+              {/* Paragraph 2 */}
+              <p className="text-zinc-400 font-normal leading-snug max-w-xl manifesto-p opacity-0">
+                FAZEMOS <span className="text-white font-bold">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-bold">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
+              </p>
+
+              {/* Paragraph 3 */}
+              <div className="text-zinc-400 font-normal leading-snug space-y-2 manifesto-p opacity-0">
+                <p>ACREDITAMOS QUE <span className="text-white font-bold">SABOR</span> NÃO ACEITA <span className="text-white font-bold">ATALHOS</span>.</p>
+                <p>ACREDITAMOS QUE <span className="text-white font-bold">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
+                <p className="pl-12 md:pl-28">É UMA OBRIGAÇÃO.</p>
+                <p>ACREDITAMOS QUE <span className="text-white font-bold">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+              </div>
+
+              {/* Paragraph 4 */}
+              <p className="text-zinc-400 font-normal leading-snug manifesto-p opacity-0">
+                ACREDITAMOS QUE <span className="text-white font-bold">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
+              </p>
+
+              {/* Paragraph 5 */}
+              <div className="text-[#1f2d24] font-bold text-2xl md:text-3xl leading-tight pt-4 manifesto-p opacity-0">
+                <p>E ACREDITAMOS QUE UM BOM MOLHO</p>
+                <p>É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+              </div>
+            </div>
+
+            {/* Right column: Image visible ONLY on mobile/tablet */}
+            <div className="lg:col-span-6 lg:hidden w-full flex justify-center mt-6 manifesto-bottles opacity-0">
+              <img 
+                src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
+                alt="Ketchups Dubola" 
+                className="w-full max-w-lg object-contain drop-shadow-2xl"
+              />
+            </div>
+            
+            {/* Empty column on desktop to let the background bottles shine */}
+            <div className="lg:col-span-6 hidden lg:block" />
           </div>
         </div>
       </section>
