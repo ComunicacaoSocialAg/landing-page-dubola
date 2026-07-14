@@ -965,7 +965,7 @@ Gostaria de solicitar proposta B2B para:
                   </div>
                   <div className="space-y-3">
                     <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
-                      Sabores marcantes produzidos com tomates selecionados, acidez equilibrada e textura ideal para finalizações.
+                      Escolhemos ingredientes selecionados que respeitam o consumidor e valorizam cada receita.
                     </p>
                     <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-[#ff003c] uppercase tracking-wider">
                       Tradicional • com Goiaba • Picante
@@ -1044,6 +1044,9 @@ Gostaria de solicitar proposta B2B para:
                     <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
                       Sabor marcante, versatilidade e autenticidade para criar novas experiências.
                     </p>
+                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-amber-500 uppercase tracking-wider">
+                      Tradicional • com Goiaba • Picante
+                    </div>
                     <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
                       Vários sabores. Muitas oportunidades.
                     </p>
