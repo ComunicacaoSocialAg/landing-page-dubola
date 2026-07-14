@@ -907,39 +907,45 @@ Gostaria de solicitar proposta B2B para:
       <section id="catalogo" className="py-24 px-6 sm:px-12 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16">
           
-          <div className="text-center space-y-4">
-            <div className="inline-flex items-center gap-2 bg-[#ff003c]/10 border border-[#ff003c]/20 px-4 py-1.5 rounded-full text-[#ff003c]">
-              <Package size={12} />
-              <span className="text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
-            </div>
-            <h2 className={`font-display text-2xl sm:text-3xl md:text-[32px] font-black uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'} max-w-4xl mx-auto leading-tight`}>
-              Mais do que assinar condimentos espetaculares, selamos um pacto de performance e crescimento com a sua operação.
-            </h2>
-            <p className="text-xs sm:text-sm text-zinc-400 max-w-2xl mx-auto font-sans-premium leading-relaxed">
-              A Dubola nasceu para elevar o padrão da chapa à mesa: transformamos o comum em memorável para cozinhas que exigem qualidade absoluta.
-            </p>
-            <div className="w-12 h-1 bg-[#ff003c] mx-auto rounded-full" />
-          </div>
-
-          {/* Complete Line Showcase Video */}
-          <div className="relative rounded-3xl overflow-hidden border border-white/[0.04] bg-zinc-950 shadow-2xl aspect-[16/9] sm:aspect-[21/9] max-h-[500px] flex items-center justify-center">
+          {/* Unified Video Banner Container (incorporating both the section header and the showcase video) */}
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950 shadow-2xl py-20 px-6 sm:px-16 flex flex-col items-center justify-center text-center min-h-[550px] md:min-h-[600px]">
             <video 
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="absolute inset-0 w-full h-full object-cover opacity-80"
+              className="absolute inset-0 w-full h-full object-cover opacity-40"
             >
               <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
             </video>
-            <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent pointer-events-none" />
-            <div className="absolute bottom-6 left-6 sm:bottom-10 sm:left-10 text-left space-y-2 z-10">
-              <span className="text-[8px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase bg-black/60 px-3 py-1 rounded-full border border-white/5">EXCELÊNCIA EM TODOS OS DETALHES</span>
-              <h3 className="font-display text-xl sm:text-3xl font-black uppercase text-white">A Linha Completa Dubola</h3>
-              <p className="text-[10px] sm:text-xs text-zinc-400 font-sans-premium max-w-md leading-relaxed">
-                Nossos produtos unem sabores autorais e ingredientes 100% selecionados a uma engenharia de embalagens voltada para rendimento, facilidade de uso e conservação de sabor.
+            {/* Overlay gradient to keep high text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/90 pointer-events-none" />
+            
+            {/* Overlaid content */}
+            <div className="relative z-10 max-w-4xl mx-auto space-y-8 flex flex-col items-center">
+              <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1.5 rounded-full text-[#ff003c] backdrop-blur-md">
+                <Package size={12} />
+                <span className="text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
+              </div>
+              
+              <h2 className="font-display text-2xl sm:text-4xl md:text-[2.6rem] font-black uppercase text-white leading-tight max-w-3xl">
+                Mais do que assinar condimentos espetaculares, selamos um pacto de performance e crescimento com a sua operação.
+              </h2>
+              
+              <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl font-sans-premium leading-relaxed">
+                A Dubola nasceu para elevar o padrão da chapa à mesa: transformamos o comum em memorável para cozinhas que exigem qualidade absoluta.
               </p>
+              
+              <div className="w-12 h-1 bg-[#ff003c] rounded-full" />
+              
+              <div className="pt-6 space-y-2 border-t border-white/10 w-full max-w-xl">
+                <span className="text-[8px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">EXCELÊNCIA EM TODOS OS DETALHES</span>
+                <h3 className="font-display text-base sm:text-lg font-bold uppercase text-white/90">A Linha Completa Dubola</h3>
+                <p className="text-[10px] sm:text-xs text-zinc-450 font-sans-premium max-w-md mx-auto leading-relaxed">
+                  Nossos produtos unem sabores autorais e ingredientes 100% selecionados a uma engenharia de embalagens voltada para rendimento, facilidade de uso e conservação de sabor.
+                </p>
+              </div>
             </div>
           </div>
 
