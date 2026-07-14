@@ -134,6 +134,7 @@ export default function DubolaB2BView() {
   const heroRef = useRef(null);
   const formRef = useRef(null);
   const videoRef = useRef(null);
+  const manifestoRef = useRef(null);
 
   // Monitor screen size for responsive assets and layouts
   useEffect(() => {
@@ -324,6 +325,91 @@ export default function DubolaB2BView() {
     }
   }, [preloaderActive, isMobile]);
 
+  /* GSAP – Manifesto scroll animations */
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header fade-in
+      gsap.fromTo('.manifesto-header', 
+        { y: 30, opacity: 0 },
+        { 
+          y: 0, 
+          opacity: 1, 
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Cursive text fade and slight rotation
+      gsap.fromTo('.manifesto-cursive',
+        { scale: 0.8, rotate: -15, opacity: 0 },
+        {
+          scale: 1,
+          rotate: -3,
+          opacity: 1,
+          duration: 1,
+          delay: 0.3,
+          ease: 'back.out(1.7)',
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Header right side text fade-in
+      gsap.fromTo('.manifesto-header-right',
+        { x: 30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 0.8,
+          delay: 0.2,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Manifesto paragraphs staggered fade-in
+      gsap.fromTo('.manifesto-p',
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.2,
+          duration: 0.8,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 65%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+
+      // Mobile bottles fade-in
+      gsap.fromTo('.manifesto-bottles',
+        { scale: 0.95, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 1,
+          scrollTrigger: {
+            trigger: manifestoRef.current,
+            start: 'top 65%',
+            toggleActions: 'play none none reverse'
+          }
+        }
+      );
+    });
+    return () => ctx.revert();
+  }, []);
 
   // Format CNPJ Input (99.999.999/9999-99)
   const handleCnpjChange = (e) => {
@@ -729,28 +815,95 @@ Gostaria de solicitar proposta B2B para:
         )}
       </section>
 
-      {/* ── TECHNICAL BENEFITS SECTION ── */}
-      <section id="beneficios" className={`py-20 ${isDarkMode ? 'bg-zinc-950/40 border-white/[0.04]' : 'bg-[#f7f0d5] border-[#eae1c0]'} border-y relative z-10 px-6 sm:px-12`}>
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center space-y-4 mb-16">
-            <p className="text-[9px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">PADRÃO INDUSTRIAL DE AUTOR</p>
-            <h2 className={`font-display text-2xl sm:text-4xl font-black uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'}`}>Por que chefs escolhem a Dubola</h2>
-            <div className="w-12 h-1 bg-[#ff003c] mx-auto rounded-full" />
+      {/* ── SECTION 2: MANIFESTO ── */}
+      <section
+        id="manifesto"
+        ref={manifestoRef}
+        className="relative w-full overflow-hidden bg-[#62070e] py-20 lg:py-32 px-6 flex items-center z-10 border-t border-white/[0.02]"
+      >
+        {/* Background image for desktop (lg) */}
+        <div className="absolute inset-0 hidden lg:block">
+          <img 
+            src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
+            alt="" 
+            className="w-full h-full object-cover object-center pointer-events-none select-none"
+          />
+          {/* Subtle overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-black/5" />
+        </div>
+
+        {/* Background gradient for mobile */}
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-[#62070e] via-[#760811] to-[#b6192c] pointer-events-none select-none" />
+
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          {/* Header of Section */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between mb-16 gap-6 manifesto-header opacity-0">
+            <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-8">
+              <h2 className="font-cheddar text-6xl sm:text-8xl tracking-tight leading-none text-white uppercase select-none">
+                O JEITO DUBOLA
+              </h2>
+              <div className="relative h-16 sm:h-24 flex items-center manifesto-cursive opacity-0">
+                <img 
+                  src="/como-deve-ser-branco.png" 
+                  alt="Como deve ser" 
+                  className="h-full w-auto object-contain transform -rotate-3 select-none"
+                />
+              </div>
+            </div>
+            
+            <div className="max-w-md lg:text-right manifesto-header-right opacity-0">
+              <p className="font-display text-lg sm:text-2xl leading-tight tracking-wider text-white uppercase">
+                A DUBOLA NASCEU PARA RESGATAR<br />
+                A AUTENTICIDADE DOS SABORES.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {B2B_BENEFITS.map((b, idx) => {
-              const Icon = b.icon;
-              return (
-                <div key={idx} className="glass-premium p-8 rounded-3xl relative overflow-hidden flex flex-col gap-4 text-left border border-white/[0.03] hover:border-[#ff003c]/20 transition-all duration-300">
-                  <div className="w-10 h-10 rounded-2xl bg-[#ff003c]/10 border border-[#ff003c]/20 text-[#ff003c] flex items-center justify-center">
-                    <Icon size={18} />
-                  </div>
-                  <h3 className={`font-space-premium font-bold text-sm uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'} tracking-wider mt-2`}>{b.title}</h3>
-                  <p className="text-xs text-zinc-400 leading-relaxed font-sans-premium">{b.desc}</p>
-                </div>
-              );
-            })}
+          {/* Grid container */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            {/* Left column: Manifesto text */}
+            <div className="lg:col-span-6 space-y-8 font-display uppercase tracking-wider text-xl md:text-2xl select-none">
+              {/* Paragraph 1 */}
+              <p className="text-zinc-300 font-normal manifesto-p opacity-0">
+                NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
+              </p>
+
+              {/* Paragraph 2 */}
+              <p className="text-zinc-400 font-normal leading-snug max-w-xl manifesto-p opacity-0">
+                FAZEMOS <span className="text-white font-bold">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-bold">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
+              </p>
+
+              {/* Paragraph 3 */}
+              <div className="text-zinc-400 font-normal leading-snug space-y-2 manifesto-p opacity-0">
+                <p>ACREDITAMOS QUE <span className="text-white font-bold">SABOR</span> NÃO ACEITA <span className="text-white font-bold">ATALHOS</span>.</p>
+                <p>ACREDITAMOS QUE <span className="text-white font-bold">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
+                <p className="pl-12 md:pl-28">É UMA OBRIGAÇÃO.</p>
+                <p>ACREDITAMOS QUE <span className="text-white font-bold">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+              </div>
+
+              {/* Paragraph 4 */}
+              <p className="text-zinc-400 font-normal leading-snug manifesto-p opacity-0">
+                ACREDITAMOS QUE <span className="text-white font-bold">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
+              </p>
+
+              {/* Paragraph 5 */}
+              <div className="text-[#1f2d24] font-bold text-2xl md:text-3xl leading-tight pt-4 manifesto-p opacity-0">
+                <p>E ACREDITAMOS QUE UM BOM MOLHO</p>
+                <p>É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+              </div>
+            </div>
+
+            {/* Right column: Image visible ONLY on mobile/tablet */}
+            <div className="lg:col-span-6 lg:hidden w-full flex justify-center mt-6 manifesto-bottles opacity-0">
+              <img 
+                src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
+                alt="Ketchups Dubola" 
+                className="w-full max-w-lg object-contain drop-shadow-2xl"
+              />
+            </div>
+            
+            {/* Empty column on desktop to let the background bottles shine */}
+            <div className="lg:col-span-6 hidden lg:block" />
           </div>
         </div>
       </section>
