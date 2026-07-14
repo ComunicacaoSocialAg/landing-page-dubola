@@ -828,7 +828,7 @@ Gostaria de solicitar proposta B2B para:
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none">
                 O JEITO DUBOLA
               </h2>
-              <div className="absolute -bottom-8 left-[75%] sm:left-[80%] w-48 sm:w-64 z-20 manifesto-cursive opacity-0">
+              <div className="absolute -bottom-8 left-full -translate-x-16 sm:-translate-x-24 w-48 sm:w-64 z-20 manifesto-cursive opacity-0">
                 <img 
                   src="/como-deve-ser-branco.png" 
                   alt="Como deve ser" 
@@ -942,7 +942,7 @@ Gostaria de solicitar proposta B2B para:
             <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
               <div className="space-y-4">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/linha-ketchups-trio.png" alt="Linha Ketchups" className="w-full h-full object-cover" />
+                  <img src="/b2b-ketchup.png" alt="Linha Ketchups" className="w-full h-full object-cover" />
                 </div>
                 <div className="space-y-2">
                   <span className="text-[8px] font-space-premium font-black text-[#ff003c] uppercase tracking-widest">LINHA KETCHUP</span>
@@ -969,7 +969,7 @@ Gostaria de solicitar proposta B2B para:
             <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
               <div className="space-y-4">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/linha-maioneses-trio.jpg" alt="Linha Maioneses" className="w-full h-full object-cover" />
+                  <img src="/b2b-maionese.png" alt="Linha Maioneses" className="w-full h-full object-cover" />
                 </div>
                 <div className="space-y-2">
                   <span className="text-[8px] font-space-premium font-black text-sky-450 uppercase tracking-widest">LINHA MAIONESE</span>
@@ -1002,7 +1002,7 @@ Gostaria de solicitar proposta B2B para:
             <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
               <div className="space-y-4">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/linha-barbecue-trio.jpg" alt="Linha Barbecues" className="w-full h-full object-cover" />
+                  <img src="/b2b-barbecue.png" alt="Linha Barbecues" className="w-full h-full object-cover" />
                 </div>
                 <div className="space-y-2">
                   <span className="text-[8px] font-space-premium font-black text-amber-500 uppercase tracking-widest">LINHA BARBECUE</span>
@@ -1029,7 +1029,7 @@ Gostaria de solicitar proposta B2B para:
             <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
               <div className="space-y-4">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/linha-mostardas.png" alt="Linha Mostardas" className="w-full h-full object-cover" />
+                  <img src="/b2b-mostarda.png" alt="Linha Mostardas" className="w-full h-full object-cover" />
                 </div>
                 <div className="space-y-2">
                   <span className="text-[8px] font-space-premium font-black text-yellow-400 uppercase tracking-widest">LINHA MOSTARDA</span>
@@ -1056,7 +1056,7 @@ Gostaria de solicitar proposta B2B para:
             <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors md:col-span-2 lg:col-span-1">
               <div className="space-y-4">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/linha-tomates.png" alt="Linha Molhos de Tomate" className="w-full h-full object-cover" />
+                  <img src="/b2b-molho-tomate.png" alt="Linha Molhos de Tomate" className="w-full h-full object-cover" />
                 </div>
                 <div className="space-y-2">
                   <span className="text-[8px] font-space-premium font-black text-emerald-400 uppercase tracking-widest">LINHA TOMATE</span>
