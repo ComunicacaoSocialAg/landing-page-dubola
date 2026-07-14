@@ -939,26 +939,33 @@ Gostaria de solicitar proposta B2B para:
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             
             {/* Ketchups Category */}
-            <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-4">
+            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
+              <div className="space-y-6">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
                   <img src="/b2b-ketchup.png" alt="Linha Ketchups" className="w-full h-full object-cover" />
                 </div>
-                <div className="space-y-2">
-                  <span className="text-[8px] font-space-premium font-black text-[#ff003c] uppercase tracking-widest">LINHA KETCHUP</span>
-                  <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Ketchups de Autor</h4>
-                  <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    Tradicional, com Goiaba e Picante. Sabores marcantes produzidos com tomates selecionados, acidez equilibrada e textura ideal para finalizações.
-                  </p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-[#ff003c] uppercase tracking-[0.2em] mb-1.5 block">LINHA KETCHUP</span>
+                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Ketchups de Autor</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
+                      Sabores marcantes produzidos com tomates selecionados, acidez equilibrada e textura ideal para finalizações.
+                    </p>
+                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-[#ff003c] uppercase tracking-wider">
+                      Tradicional • com Goiaba • Picante
+                    </div>
+                  </div>
                 </div>
               </div>
               
               <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
                 <div>
-                  <p className="text-[8px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-2">Formatos Disponíveis</p>
+                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
                   <div className="flex flex-wrap gap-1.5">
                     {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[8px] font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-2 py-1 rounded-lg border`}>{f}</span>
+                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
                     ))}
                   </div>
                 </div>
@@ -966,34 +973,42 @@ Gostaria de solicitar proposta B2B para:
             </div>
 
             {/* Maioneses Category */}
-            <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-4">
+            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
+              <div className="space-y-6">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
                   <img src="/b2b-maionese.png" alt="Linha Maioneses" className="w-full h-full object-cover" />
                 </div>
-                <div className="space-y-2">
-                  <span className="text-[8px] font-space-premium font-black text-sky-450 uppercase tracking-widest">LINHA MAIONESE</span>
-                  <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Maioneses Especiais</h4>
-                  <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Feita para valorizar o sabor de cada receita.</span>
-                    <span className="block text-[10px] text-sky-450 font-bold mb-1">Tradicional, Alho, Tártaro, Alho Poró & Ervas Finas</span>
-                    Ingredientes selecionados. Receita autêntica. Feita para quem acredita que uma boa maionese deve completar a receita, nunca a esconder.
-                  </p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-sky-450 uppercase tracking-[0.2em] mb-1.5 block">LINHA MAIONESE</span>
+                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Maioneses Especiais</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
+                      Feita para valorizar o sabor de cada receita.
+                    </p>
+                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-sky-450 uppercase tracking-wider">
+                      Tradicional • Alho • Tártaro • Alho Poró & Ervas Finas
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
+                      Ingredientes selecionados. Receita autêntica. Feita para quem acredita que uma boa maionese deve completar a receita, nunca a esconder.
+                    </p>
+                  </div>
                 </div>
               </div>
               
               <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
                 <div>
-                  <p className="text-[8px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-2">Formatos Disponíveis</p>
-                  <div className="space-y-2">
+                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
+                  <div className="space-y-3">
                     <div className="flex flex-wrap gap-1.5">
                       {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                        <span key={f} className={`text-[8px] font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-2 py-1 rounded-lg border`}>{f}</span>
+                        <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
                       ))}
                     </div>
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-[8px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2 py-1 rounded-lg border border-[#ff003c]/10">Pote de Vidro *</span>
-                      <span className="text-[8px] text-zinc-550 font-sans-premium">* Disponível apenas para Maionese Tradicional</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[9px] sm:text-[10px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2.5 py-1 rounded-lg border border-[#ff003c]/10 shrink-0">Pote de Vidro *</span>
+                      <span className="text-[9px] sm:text-[10px] text-zinc-550 font-sans-premium leading-none">* Disponível apenas para Maionese Tradicional</span>
                     </div>
                   </div>
                 </div>
@@ -1001,27 +1016,33 @@ Gostaria de solicitar proposta B2B para:
             </div>
 
             {/* Barbecues Category */}
-            <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-4">
+            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
+              <div className="space-y-6">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
                   <img src="/b2b-barbecue.png" alt="Linha Barbecues" className="w-full h-full object-cover" />
                 </div>
-                <div className="space-y-2">
-                  <span className="text-[8px] font-space-premium font-black text-amber-500 uppercase tracking-widest">LINHA BARBECUE</span>
-                  <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Barbecue Premium</h4>
-                  <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Sabor marcante, versatilidade e autenticidade para criar novas experiências.</span>
-                    Vários sabores. Muitas oportunidades.
-                  </p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-amber-500 uppercase tracking-[0.2em] mb-1.5 block">LINHA BARBECUE</span>
+                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Barbecue Premium</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
+                      Sabor marcante, versatilidade e autenticidade para criar novas experiências.
+                    </p>
+                    <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
+                      Vários sabores. Muitas oportunidades.
+                    </p>
+                  </div>
                 </div>
               </div>
               
               <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
                 <div>
-                  <p className="text-[8px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-2">Formatos Disponíveis</p>
+                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
                   <div className="flex flex-wrap gap-1.5">
                     {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[8px] font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-2 py-1 rounded-lg border`}>{f}</span>
+                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
                     ))}
                   </div>
                 </div>
@@ -1029,27 +1050,33 @@ Gostaria de solicitar proposta B2B para:
             </div>
 
             {/* Mostardas Category */}
-            <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-4">
+            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
+              <div className="space-y-6">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
                   <img src="/b2b-mostarda.png" alt="Linha Mostardas" className="w-full h-full object-cover" />
                 </div>
-                <div className="space-y-2">
-                  <span className="text-[8px] font-space-premium font-black text-yellow-400 uppercase tracking-widest">LINHA MOSTARDA</span>
-                  <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Mostardas Especiais</h4>
-                  <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Equilíbrio entre intensidade e sabor.</span>
-                    Tradicional e Dijon.
-                  </p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-yellow-450 uppercase tracking-[0.2em] mb-1.5 block">LINHA MOSTARDA</span>
+                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Mostardas Especiais</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
+                      Equilíbrio entre intensidade e sabor.
+                    </p>
+                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-yellow-450 uppercase tracking-wider">
+                      Tradicional • Dijon
+                    </div>
+                  </div>
                 </div>
               </div>
               
               <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
                 <div>
-                  <p className="text-[8px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-2">Formatos Disponíveis</p>
+                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
                   <div className="flex flex-wrap gap-1.5">
                     {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[8px] font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-2 py-1 rounded-lg border`}>{f}</span>
+                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
                     ))}
                   </div>
                 </div>
@@ -1057,28 +1084,36 @@ Gostaria de solicitar proposta B2B para:
             </div>
 
             {/* Molhos de Tomate Category */}
-            <div className="glass-premium p-6 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors md:col-span-2 lg:col-span-1">
-              <div className="space-y-4">
+            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors md:col-span-2 lg:col-span-1">
+              <div className="space-y-6">
                 <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
                   <img src="/b2b-molho-tomate.png" alt="Linha Molhos de Tomate" className="w-full h-full object-cover" />
                 </div>
-                <div className="space-y-2">
-                  <span className="text-[8px] font-space-premium font-black text-emerald-400 uppercase tracking-widest">LINHA TOMATE</span>
-                  <h4 className={`font-space-premium font-black text-lg ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Molhos de Tomate</h4>
-                  <p className="text-[11px] text-zinc-400 font-sans-premium leading-relaxed">
-                    <span className={`block font-bold ${isDarkMode ? 'text-white' : 'text-zinc-900'} mb-1`}>Tomate. Como deve ser. O tomate é o protagonista.</span>
-                    <span className="block text-[10px] text-emerald-400 font-bold mb-1">Tradicional ao Sugo - Tradicional com Pedaços - Rústico com Alho-Poró e Ervas Finas</span>
-                    Acreditamos que um bom molho de tomate começa muito antes da panela. Começa na escolha de ingredientes que respeitam a receita, o cozinheiro e, principalmente, quem vai sentar à mesa.
-                  </p>
+                <div className="space-y-4">
+                  <div>
+                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-emerald-400 uppercase tracking-[0.2em] mb-1.5 block">LINHA TOMATE</span>
+                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Molhos de Tomate</h4>
+                  </div>
+                  <div className="space-y-3">
+                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
+                      Tomate. Como deve ser. O tomate é o protagonista.
+                    </p>
+                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-emerald-400 uppercase tracking-wider">
+                      Tradicional ao Sugo • Tradicional com Pedaços • Rústico com Alho-Poró e Ervas Finas
+                    </div>
+                    <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
+                      Acreditamos que um bom molho de tomate começa muito antes da panela. Começa na escolha de ingredientes que respeitam a receita, o cozinheiro e, principalmente, quem vai sentar à mesa.
+                    </p>
+                  </div>
                 </div>
               </div>
               
               <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
                 <div>
-                  <p className="text-[8px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-2">Formatos Disponíveis</p>
+                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
                   <div className="flex flex-wrap gap-1.5">
                     {['Pote de Vidro 320g', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className="text-[8px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2 py-1 rounded-lg border border-[#ff003c]/10">{f}</span>
+                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-3 py-1.5 rounded-lg border border-[#ff003c]/10`}>{f}</span>
                     ))}
                   </div>
                 </div>
