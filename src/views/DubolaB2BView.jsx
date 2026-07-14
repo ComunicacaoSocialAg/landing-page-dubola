@@ -819,16 +819,16 @@ Gostaria de solicitar proposta B2B para:
       <section
         id="manifesto"
         ref={manifestoRef}
-        className="relative w-full overflow-hidden bg-gradient-to-r from-[#7a0c16] via-[#7a0c16] to-[#62070e] py-24 lg:py-32 px-6 flex items-center z-10 border-t border-white/[0.02]"
+        className="relative w-full overflow-hidden bg-[#62070e] py-24 lg:py-32 px-6 flex items-center z-10 border-t border-white/[0.02]"
       >
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header of Section */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-20 gap-8 manifesto-header opacity-0">
-            <div className="relative flex items-end">
+          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-24 gap-8 manifesto-header opacity-0">
+            <div className="relative inline-flex items-end">
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none">
                 O JEITO DUBOLA
               </h2>
-              <div className="absolute -bottom-4 left-[62%] w-48 sm:w-64 z-20 manifesto-cursive opacity-0">
+              <div className="absolute -bottom-8 -right-16 w-48 sm:w-64 z-20 manifesto-cursive opacity-0">
                 <img 
                   src="/como-deve-ser-branco.png" 
                   alt="Como deve ser" 
@@ -837,7 +837,7 @@ Gostaria de solicitar proposta B2B para:
               </div>
             </div>
             
-            <div className="max-w-xl lg:text-right pt-6 lg:pt-0 manifesto-header-right opacity-0">
+            <div className="max-w-xl lg:text-right pt-8 lg:pt-0 manifesto-header-right opacity-0">
               <p className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] leading-none tracking-widest text-white uppercase">
                 A DUBOLA NASCEU PARA RESGATAR<br />
                 A AUTENTICIDADE DOS SABORES.
@@ -850,32 +850,36 @@ Gostaria de solicitar proposta B2B para:
             {/* Left column: Manifesto text */}
             <div className="lg:col-span-6 space-y-10 select-none">
               {/* Paragraph 1 */}
-              <p className="font-display uppercase tracking-wider text-3xl lg:text-4xl text-white font-bold manifesto-p opacity-0 leading-none">
+              <p className="font-display uppercase tracking-widest text-2xl sm:text-3xl lg:text-4xl text-white font-bold manifesto-p opacity-0 leading-none">
                 NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
               </p>
 
               {/* Paragraph 2 */}
-              <p className="font-display uppercase tracking-wider text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-tight max-w-xl manifesto-p opacity-0">
+              <p className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-tight max-w-xl manifesto-p opacity-0">
                 FAZEMOS <span className="text-white font-black">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-black">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
               </p>
 
               {/* Paragraph 3 */}
-              <div className="font-display uppercase tracking-wider text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-tight space-y-3 manifesto-p opacity-0">
+              <div className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-tight space-y-3 manifesto-p opacity-0">
                 <p>ACREDITAMOS QUE <span className="text-white font-black">SABOR</span> NÃO ACEITA <span className="text-white font-black">ATALHOS</span>.</p>
                 <p>ACREDITAMOS QUE <span className="text-white font-black">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                <p className="pl-16 md:pl-32">É UMA OBRIGAÇÃO.</p>
+                <p className="pl-16 md:pl-28">É UMA OBRIGAÇÃO.</p>
                 <p>ACREDITAMOS QUE <span className="text-white font-black">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
               </div>
 
               {/* Paragraph 4 */}
-              <p className="font-display uppercase tracking-wider text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-tight manifesto-p opacity-0">
+              <p className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-tight manifesto-p opacity-0">
                 ACREDITAMOS QUE <span className="text-white font-black">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
               </p>
 
-              {/* Paragraph 5 */}
-              <div className="font-display uppercase tracking-wider text-3xl lg:text-[2.2rem] text-[#182d1c] font-black leading-tight pt-6 manifesto-p opacity-0">
-                <p>E ACREDITAMOS QUE UM BOM MOLHO</p>
-                <p>É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+              {/* Paragraph 5: O bloco em verde escuro #1f2d24 */}
+              <div className="bg-[#1f2d24] p-6 sm:p-8 rounded-3xl border border-white/5 shadow-2xl space-y-3 manifesto-p opacity-0 max-w-xl">
+                <p className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#f3d3d6] font-normal leading-none">
+                  E ACREDITAMOS QUE UM BOM MOLHO
+                </p>
+                <p className="font-display uppercase tracking-widest text-2xl sm:text-3xl lg:text-[2.2rem] text-white font-black leading-none">
+                  É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.
+                </p>
               </div>
             </div>
 
@@ -884,7 +888,7 @@ Gostaria de solicitar proposta B2B para:
               <img 
                 src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
                 alt="Ketchups Dubola" 
-                className="w-full max-w-2xl object-contain drop-shadow-[0_15px_35px_rgba(0,0,0,0.5)]"
+                className="w-full max-w-2xl object-contain"
               />
             </div>
           </div>
