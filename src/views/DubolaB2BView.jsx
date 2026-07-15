@@ -982,12 +982,12 @@ Gostaria de solicitar proposta B2B para:
               </p>
 
               {/* Paragraph 2 */}
-              <p className="font-sans uppercase tracking-wider text-sm sm:text-base lg:text-[1.1rem] text-[#eccbc4] font-normal leading-relaxed max-w-xl manifesto-p opacity-0">
+              <p className="font-display uppercase tracking-widest text-base sm:text-lg lg:text-[1.25rem] text-white/70 font-normal leading-snug max-w-xl manifesto-p opacity-0">
                 FAZEMOS <span className="text-white font-black">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-black">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
               </p>
 
               {/* Paragraph 3 */}
-              <div className="font-sans uppercase tracking-wider text-sm sm:text-base lg:text-[1.1rem] text-[#eccbc4] font-normal leading-relaxed space-y-2 manifesto-p opacity-0">
+              <div className="font-display uppercase tracking-widest text-base sm:text-lg lg:text-[1.25rem] text-white/70 font-normal leading-snug space-y-1.5 manifesto-p opacity-0">
                 <p>ACREDITAMOS QUE <span className="text-white font-black">SABOR</span> NÃO ACEITA <span className="text-white font-black">ATALHOS</span>.</p>
                 <p>ACREDITAMOS QUE <span className="text-white font-black">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
                 <p>É UMA <span className="text-white font-black">OBRIGAÇÃO</span>.</p>
@@ -995,14 +995,14 @@ Gostaria de solicitar proposta B2B para:
               </div>
 
               {/* Paragraph 4 */}
-              <p className="font-sans uppercase tracking-wider text-sm sm:text-base lg:text-[1.1rem] text-[#eccbc4] font-normal leading-relaxed manifesto-p opacity-0">
+              <p className="font-display uppercase tracking-widest text-base sm:text-lg lg:text-[1.25rem] text-white/70 font-normal leading-snug manifesto-p opacity-0">
                 ACREDITAMOS QUE <span className="text-white font-black">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
               </p>
 
               {/* Paragraph 5 */}
-              <div className="font-sans uppercase tracking-wider text-[#1f2d24] font-black space-y-1 pt-6 manifesto-p opacity-0">
-                <p className="text-xl sm:text-2xl lg:text-[1.85rem] leading-[1.1]">E ACREDITAMOS QUE UM BOM MOLHO</p>
-                <p className="text-2xl sm:text-3xl lg:text-[2.2rem] leading-[1.1]">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+              <div className="font-display uppercase tracking-widest text-[#1f2d24] font-black space-y-1 pt-6 manifesto-p opacity-0">
+                <p className="text-2xl sm:text-3xl lg:text-[2rem] leading-none">E ACREDITAMOS QUE UM BOM MOLHO</p>
+                <p className="text-3xl sm:text-4xl lg:text-[2.4rem] leading-none">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
               </div>
             </div>
 
@@ -1022,8 +1022,8 @@ Gostaria de solicitar proposta B2B para:
       <section id="catalogo" className="py-24 px-6 sm:px-12 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16 relative z-10">
           
-          {/* Cinematic Product Slider Showcase */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950/20 shadow-2xl py-20 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[850px] lg:min-h-[920px] w-full">
+          {/* Cinematic Product Slider Showcase - Aspect 16:9 (1920x1080) on Desktop */}
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950/20 shadow-2xl py-12 md:py-8 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[820px] md:min-h-[780px] md:aspect-video w-full">
             {/* Background Video (Only inside the showcase box/strip) */}
             <video 
               autoPlay
@@ -1036,20 +1036,20 @@ Gostaria de solicitar proposta B2B para:
               <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
             </video>
 
-            <div className="w-full relative z-10 space-y-10">
+            <div className="w-full relative z-10 space-y-4 md:space-y-3">
               
               {/* Header Content */}
-              <div className="space-y-4 max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1.5 rounded-full text-[#ff003c] backdrop-blur-md">
-                  <Package size={12} />
-                  <span className="text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
+              <div className="space-y-2 md:space-y-3 max-w-4xl mx-auto">
+                <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1 rounded-full text-[#ff003c] backdrop-blur-md">
+                  <Package size={11} />
+                  <span className="text-[8px] sm:text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
                 </div>
                 
-                <h2 className="font-display text-2xl sm:text-4xl md:text-[2.6rem] font-black uppercase text-white leading-tight">
+                <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-black uppercase text-white leading-tight">
                   Mais do que assinar condimentos espetaculares, selamos um pacto de performance e crescimento com a sua operação.
                 </h2>
                 
-                <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto font-sans-premium leading-relaxed">
+                <p className="text-[11px] sm:text-xs md:text-sm text-zinc-350 max-w-2xl mx-auto font-sans-premium leading-relaxed">
                   A Dubola nasceu para elevar o padrão da chapa à mesa: transformamos o comum em memorável para cozinhas que exigem qualidade absoluta.
                 </p>
               </div>
@@ -1098,7 +1098,7 @@ Gostaria de solicitar proposta B2B para:
 
                 {/* Slider Viewport with Perspective */}
                 <div 
-                  className="w-full max-w-4xl min-h-[490px] md:min-h-[500px] relative overflow-visible flex items-center justify-center"
+                  className="w-full max-w-4xl min-h-[450px] md:min-h-[420px] relative overflow-visible flex items-center justify-center"
                   style={{ perspective: '1200px' }}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
@@ -1148,7 +1148,7 @@ Gostaria de solicitar proposta B2B para:
                       <div
                         key={cat.id}
                         onClick={() => !isActive && setActiveCardIndex(idx)}
-                        className={`absolute transition-all duration-700 ease-out w-full max-w-[92vw] sm:max-w-3xl rounded-[2.5rem] border overflow-hidden shadow-2xl flex flex-col md:flex-row gap-6 md:gap-8 p-6 sm:p-8 md:p-10 text-left ${
+                        className={`absolute transition-all duration-700 ease-out w-full max-w-[92vw] sm:max-w-3xl rounded-[2.5rem] border overflow-hidden shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 p-5 sm:p-6 md:p-8 text-left ${
                           isDarkMode 
                             ? 'bg-zinc-950/80 border-white/[0.08] text-white shadow-black/80' 
                             : 'bg-white/95 border-zinc-200/80 text-zinc-900 shadow-zinc-950/10'
@@ -1184,7 +1184,7 @@ Gostaria de solicitar proposta B2B para:
                         </div>
 
                         {/* Right Column - Copy Details */}
-                        <div className="flex-1 flex flex-col justify-between space-y-4 md:space-y-6">
+                        <div className="flex-1 flex flex-col justify-between space-y-3 md:space-y-4">
                           <div className="space-y-3">
                             <div>
                               <span className={`text-[10px] sm:text-xs font-space-premium font-black uppercase tracking-[0.2em] mb-1.5 block ${cat.textColorClass}`}>
@@ -1268,7 +1268,7 @@ Gostaria de solicitar proposta B2B para:
               </div>
 
               {/* Bottom Info Banner */}
-              <div className="pt-6 space-y-2 border-t border-white/10 w-full max-w-xl mx-auto text-center">
+              <div className="pt-6 space-y-2 border-t border-white/10 w-full max-w-xl mx-auto text-center md:hidden">
                 <span className="text-[8px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">EXCELÊNCIA EM TODOS OS DETALHES</span>
                 <h3 className="font-display text-sm sm:text-base font-bold uppercase text-white/90">A Linha Completa Dubola</h3>
                 <p className="text-[10px] sm:text-xs text-zinc-450 font-sans-premium max-w-md mx-auto leading-relaxed">
