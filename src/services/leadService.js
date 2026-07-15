@@ -182,7 +182,7 @@ export async function submitB2BLead(rawFormData) {
     lgpd_consent_timestamp: new Date().toISOString(),
     lgpd_consent_ip: ipAddress,
     lgpd_consent_user_agent: navigator.userAgent,
-    lgpd_purpose: 'Contato comercial B2B para proposta de fornecimento e amostras de molhos'
+    lgpd_purpose: 'Contato comercial B2B para proposta de fornecimento de molhos'
   };
 
   // Executar envios assíncronos em paralelo

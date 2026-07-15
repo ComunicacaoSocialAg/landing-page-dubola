@@ -364,60 +364,85 @@ export default function DubolaB2BView() {
 
       const tl = gsap.timeline();
 
-      // Step 2: badge and handwriting script logo
-      tl.to(['.hero-badge', '.hero-handwriting'], {
+      // Sequence (appearing one after the other):
+      // 1. Left logo/handwriting appears
+      tl.to('.hero-handwriting', {
         opacity: 1,
         y: 0,
-        duration: 0.7,
+        duration: 0.8,
         ease: 'power3.out'
       })
-      // Step 3: Title Lines Stagger
+      // 2. B2B Badge appears next
+      .to('.hero-badge', {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        ease: 'power2.out'
+      }, '+=0.1')
+      // 3. Title lines stagger up next
       .to('.hero-title-line', {
         opacity: 1,
         y: 0,
-        stagger: 0.12,
-        duration: 0.7,
+        stagger: 0.2,
+        duration: 0.8,
         ease: 'power4.out'
-      }, '-=0.35')
-      // Step 4: Subtitle & Right Logo
-      .to(['.hero-desc', '.hero-logo-right'], {
+      }, '+=0.15')
+      // 4. Subtitle appears next
+      .to('.hero-desc', {
         opacity: 1,
         y: 0,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '+=0.1')
+      // 5. Right logo appears next
+      .to('.hero-logo-right', {
+        opacity: 1,
         x: 0,
-        duration: 0.65,
-        ease: 'power3.out'
-      }, '-=0.3')
-      // Step 5: CTA buttons
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '+=0.1')
+      // 6. Buttons appear last
       .to('.hero-btns', {
         opacity: 1,
         y: 0,
-        duration: 0.65,
+        duration: 0.7,
         ease: 'power3.out'
-      }, '-=0.35');
+      }, '+=0.15');
     };
 
     if (video) {
-      // Play background video on preloader finish
-      video.play().catch((err) => {
-        console.warn("Autoplay block or video.play() error:", err);
-        setVideoEnded(true);
-      });
-
-      // Trigger text fade-in and slide-up immediately when preloader ends
-      triggerCinematicIntro();
-
-      if (video.ended) {
-        setVideoEnded(true);
-        return;
-      }
-
       const handleEnded = () => {
         setVideoEnded(true);
+        triggerCinematicIntro();
       };
-      video.addEventListener('ended', handleEnded, { once: true });
+
+      // Fallback: safety timeout to trigger if video fails to report ended or takes too long to load/play (4 seconds)
+      fallbackTimeout = setTimeout(() => {
+        if (!video.ended) {
+          setVideoEnded(true);
+          triggerCinematicIntro();
+        }
+      }, 4000);
+
+      // Play background video on preloader finish
+      video.play()
+        .then(() => {
+          // If video was already ended, trigger immediately
+          if (video.ended) {
+            handleEnded();
+          } else {
+            video.addEventListener('ended', handleEnded, { once: true });
+          }
+        })
+        .catch((err) => {
+          console.warn("Autoplay block or video.play() error:", err);
+          setVideoEnded(true);
+          triggerCinematicIntro();
+        });
 
       return () => {
         video.removeEventListener('ended', handleEnded);
+        if (fallbackTimeout) clearTimeout(fallbackTimeout);
       };
     } else {
       setVideoEnded(true);
@@ -566,7 +591,7 @@ export default function DubolaB2BView() {
       const scoreTag = isHot ? '🔥 *[ATENDIMENTO PRIORITÁRIO - CLIENTE DE ALTO GIRO]*\n' : '';
       
       const message = `${scoreTag}Olá, Equipe Comercial da Dubola Alimentos!
-Gostaria de solicitar uma proposta comercial e amostras para a minha empresa:
+Gostaria de solicitar mais informações para a minha empresa:
 
 - *Razão Social:* ${formData.businessName}
 - *CNPJ:* ${formData.cnpj}
@@ -811,7 +836,7 @@ Gostaria de solicitar proposta B2B para:
           
           {/* COLUMN 1: LEFT AREA (Handwriting logo "Como deve ser.") */}
           {!isMobile ? (
-            <div className="hero-handwriting absolute top-[8%] left-[20%] w-[18%] select-none">
+            <div className="hero-handwriting opacity-0 absolute top-[8%] left-[20%] w-[18%] select-none">
               <img 
                 src="/como-deve-ser.png" 
                 alt="Como deve ser." 
@@ -820,7 +845,7 @@ Gostaria de solicitar proposta B2B para:
             </div>
           ) : (
             /* On mobile, place it at the top */
-            <div className="hero-handwriting absolute top-28 left-6">
+            <div className="hero-handwriting opacity-0 absolute top-28 left-6">
               <img 
                 src="/como-deve-ser.png" 
                 alt="Como deve ser." 
@@ -838,7 +863,7 @@ Gostaria de solicitar proposta B2B para:
             }
           `}>
             {/* Badge */}
-            <div className={`hero-badge inline-flex items-center gap-2 border backdrop-blur-md px-4 py-1.5 rounded-full mb-4 self-start ${
+            <div className={`hero-badge opacity-0 inline-flex items-center gap-2 border backdrop-blur-md px-4 py-1.5 rounded-full mb-4 self-start ${
               isDarkMode 
                 ? 'bg-black/50 border-white/10 text-zinc-300' 
                 : 'bg-white/70 border-zinc-200 text-zinc-700'
@@ -856,8 +881,8 @@ Gostaria de solicitar proposta B2B para:
               }}
               className="font-black uppercase leading-[0.98] tracking-wide mb-3 drop-shadow-[0_2px_12px_rgba(0,0,0,0.4)]"
             >
-              <span className="hero-title-line block">MOLHOS QUE VOCÊ</span>
-              <span className="hero-title-line block">SERVE COM ORGULHO.</span>
+              <span className="hero-title-line opacity-0 block">MOLHOS QUE VOCÊ</span>
+              <span className="hero-title-line opacity-0 block">SERVE COM ORGULHO.</span>
             </h1>
 
             {/* Subtitle */}
@@ -867,13 +892,13 @@ Gostaria de solicitar proposta B2B para:
                 fontSize: isMobile ? '1.1rem' : 'clamp(1.15rem, 1.4vw, 1.45rem)',
                 color: '#c4b265'
               }}
-              className="hero-desc font-bold tracking-[0.2em] leading-none mb-6 uppercase drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
+              className="hero-desc opacity-0 font-bold tracking-[0.2em] leading-none mb-6 uppercase drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]"
             >
               AUTÊNTICOS. SABOROSOS. CONFIÁVEIS.
             </p>
 
             {/* CTAs */}
-            <div className="hero-btns flex gap-3 w-full sm:w-auto">
+            <div className="hero-btns opacity-0 flex gap-3 w-full sm:w-auto">
               <a
                 href="#catalogo"
                 className="flex items-center justify-center gap-2 rounded-2xl bg-[#a01e16] hover:bg-[#861710] text-white font-space-premium font-bold uppercase tracking-widest transition-all shadow-[0_0_28px_rgba(160,30,22,0.4)]"
@@ -897,7 +922,7 @@ Gostaria de solicitar proposta B2B para:
 
           {/* COLUMN 3: RIGHT AREA (Dubola Logo) */}
           {!isMobile && (
-            <div className="hero-logo-right absolute top-[20%] right-[8%] w-[12%] flex justify-end items-center">
+            <div className="hero-logo-right opacity-0 absolute top-[20%] right-[8%] w-[12%] flex justify-end items-center">
               <img 
                 src="/Logo-Dubola.png" 
                 alt="DUBOLA Logo" 
@@ -923,12 +948,13 @@ Gostaria de solicitar proposta B2B para:
       >
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header of Section */}
-          <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between mb-24 gap-8 manifesto-header opacity-0">
-            <div className="relative inline-flex items-end">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-16 lg:mb-24 w-full select-none">
+            {/* Title Column */}
+            <div className="lg:col-span-6 relative inline-flex items-end manifesto-header opacity-0 w-full">
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none">
                 O JEITO DUBOLA
               </h2>
-              <div className="absolute -bottom-8 right-0 left-auto sm:right-auto sm:left-full -translate-x-2 sm:-translate-x-16 w-40 sm:w-64 z-20 manifesto-cursive opacity-0">
+              <div className="absolute -bottom-8 right-0 left-auto sm:right-auto sm:left-[70%] -translate-x-2 sm:-translate-x-12 w-40 sm:w-56 lg:w-64 z-20 manifesto-cursive opacity-0">
                 <img 
                   src="/como-deve-ser-branco.png" 
                   alt="Como deve ser" 
@@ -937,7 +963,8 @@ Gostaria de solicitar proposta B2B para:
               </div>
             </div>
             
-            <div className="max-w-xl lg:text-right pt-8 lg:pt-0 manifesto-header-right opacity-0">
+            {/* Subtitle Column */}
+            <div className="lg:col-span-6 lg:text-left manifesto-header-right opacity-0 w-full">
               <p className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] leading-none tracking-widest text-white uppercase">
                 A DUBOLA NASCEU PARA RESGATAR<br />
                 A AUTENTICIDADES DOS SABORES.
@@ -946,7 +973,7 @@ Gostaria de solicitar proposta B2B para:
           </div>
 
           {/* Grid container */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
             {/* Left column: Manifesto text */}
             <div className="lg:col-span-6 space-y-10 select-none">
               {/* Paragraph 1 */}
@@ -955,27 +982,27 @@ Gostaria de solicitar proposta B2B para:
               </p>
 
               {/* Paragraph 2 */}
-              <p className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#eccbc4] font-normal leading-tight max-w-xl manifesto-p opacity-0">
+              <p className="font-sans uppercase tracking-wider text-sm sm:text-base lg:text-[1.1rem] text-[#eccbc4] font-normal leading-relaxed max-w-xl manifesto-p opacity-0">
                 FAZEMOS <span className="text-white font-black">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-black">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
               </p>
 
               {/* Paragraph 3 */}
-              <div className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#eccbc4] font-normal leading-tight space-y-3 manifesto-p opacity-0">
+              <div className="font-sans uppercase tracking-wider text-sm sm:text-base lg:text-[1.1rem] text-[#eccbc4] font-normal leading-relaxed space-y-2 manifesto-p opacity-0">
                 <p>ACREDITAMOS QUE <span className="text-white font-black">SABOR</span> NÃO ACEITA <span className="text-white font-black">ATALHOS</span>.</p>
                 <p>ACREDITAMOS QUE <span className="text-white font-black">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                <p className="pl-16 md:pl-28">É UMA OBRIGAÇÃO.</p>
+                <p>É UMA <span className="text-white font-black">OBRIGAÇÃO</span>.</p>
                 <p>ACREDITAMOS QUE <span className="text-white font-black">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
               </div>
 
               {/* Paragraph 4 */}
-              <p className="font-display uppercase tracking-widest text-xl sm:text-2xl lg:text-[1.85rem] text-[#eccbc4] font-normal leading-tight manifesto-p opacity-0">
+              <p className="font-sans uppercase tracking-wider text-sm sm:text-base lg:text-[1.1rem] text-[#eccbc4] font-normal leading-relaxed manifesto-p opacity-0">
                 ACREDITAMOS QUE <span className="text-white font-black">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
               </p>
 
               {/* Paragraph 5 */}
-              <div className="font-display uppercase tracking-widest text-[#1f2d24] font-black space-y-3 pt-6 manifesto-p opacity-0">
-                <p className="text-3xl lg:text-[2.2rem] leading-[0.9]">E ACREDITAMOS QUE UM BOM MOLHO</p>
-                <p className="text-4xl lg:text-[2.6rem] leading-[0.9]">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+              <div className="font-sans uppercase tracking-wider text-[#1f2d24] font-black space-y-1 pt-6 manifesto-p opacity-0">
+                <p className="text-xl sm:text-2xl lg:text-[1.85rem] leading-[1.1]">E ACREDITAMOS QUE UM BOM MOLHO</p>
+                <p className="text-2xl sm:text-3xl lg:text-[2.2rem] leading-[1.1]">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
               </div>
             </div>
 
@@ -992,23 +1019,23 @@ Gostaria de solicitar proposta B2B para:
       </section>
 
       {/* ── SIMPLIFIED COMMERCIAL CATALOG SECTION ── */}
-      <section id="catalogo" className="py-24 px-6 sm:px-12 relative overflow-hidden z-10">
-        {/* Background Video for the Entire Section */}
-        <video 
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
-        </video>
-
+      <section id="catalogo" className="py-24 px-6 sm:px-12 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16 relative z-10">
           
           {/* Cinematic Product Slider Showcase */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-transparent shadow-2xl py-20 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[850px] lg:min-h-[920px] w-full">
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950/20 shadow-2xl py-20 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[850px] lg:min-h-[920px] w-full">
+            {/* Background Video (Only inside the showcase box/strip) */}
+            <video 
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="absolute inset-0 w-full h-full object-cover z-0"
+            >
+              <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
+            </video>
+
             <div className="w-full relative z-10 space-y-10">
               
               {/* Header Content */}
@@ -1620,9 +1647,9 @@ Gostaria de solicitar proposta B2B para:
             {!commercialSubmitted ? (
               <form onSubmit={handleCommercialSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <h3 className={`font-space-premium font-black text-lg uppercase ${isDarkMode ? 'text-white' : 'text-zinc-800'} tracking-widest`}>Receber Proposta e Amostras B2B</h3>
+                  <h3 className={`font-space-premium font-black text-lg uppercase ${isDarkMode ? 'text-white' : 'text-zinc-800'} tracking-widest`}>Para mais informações</h3>
                   <p className={`text-xs ${isDarkMode ? 'text-zinc-500' : 'text-zinc-500'} font-sans-premium leading-relaxed`}>
-                    Preencha os dados do seu negócio abaixo. Nossa equipe comercial validará seu CNPJ e entrará em contato para enviar tabelas de preços corporativas com desconto escalável.
+                    Preencha os dados abaixo e logo entraremos em contato
                   </p>
                 </div>
 
@@ -1789,7 +1816,7 @@ Gostaria de solicitar proposta B2B para:
                     required
                   />
                   <label htmlFor="lgpdConsent" className={`text-[10px] font-sans-premium leading-relaxed cursor-pointer select-none ${isDarkMode ? 'text-zinc-550' : 'text-zinc-600'}`}>
-                    Declaro que li e concordo com os <span onClick={() => setPrivacyModalOpen(true)} className="text-[#ff003c] underline hover:text-[#d90432] cursor-pointer">Termos de Uso</span> e a <span onClick={() => setPrivacyModalOpen(true)} className="text-[#ff003c] underline hover:text-[#d90432] cursor-pointer">Política de Privacidade</span> da Dubola Alimentos e aceito o compartilhamento dos dados sob a LGPD para recebimento de propostas comerciais de preços e amostras por WhatsApp e e-mail.
+                    Declaro que li e concordo com os <span onClick={() => setPrivacyModalOpen(true)} className="text-[#ff003c] underline hover:text-[#d90432] cursor-pointer">Termos de Uso</span> e a <span onClick={() => setPrivacyModalOpen(true)} className="text-[#ff003c] underline hover:text-[#d90432] cursor-pointer">Política de Privacidade</span> da Dubola Alimentos e aceito o compartilhamento dos dados sob a LGPD para recebimento de propostas comerciais de preços por WhatsApp e e-mail.
                   </label>
                 </div>
 
@@ -1816,7 +1843,7 @@ Gostaria de solicitar proposta B2B para:
                     Proposta Comercial Solicitada!
                   </h4>
                   <p className={`text-xs ${isDarkMode ? 'text-zinc-400' : 'text-zinc-550'} font-sans-premium leading-relaxed max-w-xs mx-auto`}>
-                    Nossa equipe comercial já recebeu os seus dados e abrirá o atendimento comercial no seu WhatsApp para alinhar o envio de amostras.
+                    Nossa equipe comercial já recebeu os seus dados e abrirá o atendimento comercial no seu WhatsApp para alinhar o atendimento.
                   </p>
                 </div>
 
