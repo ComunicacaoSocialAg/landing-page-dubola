@@ -74,7 +74,6 @@ const B2B_LOGISTICS_SPECS = {
     weight: '1,5 kg por caixa master (média)',
     dimensions: '22cm x 15cm x 18cm',
     palletQty: '240 caixas por pallet padrão',
-    idealFor: 'Mesas de restaurantes, hamburguerias, bistrôs e empórios de alta gastronomia.',
     description: 'A embalagem perfeita para contato direto com o cliente final na mesa. Design anatômico com válvula dosadora limpa que evita desperdícios e respingos acidentais, garantindo a higiene do salão.',
     highlights: ['Válvula corta-gotas de silicone', 'PET 100% reciclável livre de BPA', 'Exposição de marca na mesa']
   },
@@ -84,9 +83,8 @@ const B2B_LOGISTICS_SPECS = {
     weight: '6,3 kg por caixa master',
     dimensions: '30cm x 20cm x 15cm',
     palletQty: '120 caixas por pallet padrão',
-    idealFor: 'Uso interno na cozinha (Back of House), preparação de pratos, reabastecimento de dispensers e alto giro.',
     description: 'Desenvolvido especificamente para chefs e operações de cozinha profissional. O formato bag de 1,01 kg maximiza o rendimento e permite a extração de até 99% do produto, gerando desperdício zero e agilizando o pré-paro de burgers e pratos.',
-    highlights: ['Bico dosador universal', 'Alta barreira contra oxigênio', 'Economia de espaço no descarte']
+    highlights: ['Alta barreira contra oxigênio', 'Economia de espaço no descarte']
   },
   vidro: {
     title: 'Pote de Vidro Gourmet (Varejo/Gourmet)',
@@ -94,7 +92,6 @@ const B2B_LOGISTICS_SPECS = {
     weight: '2,8 kg por caixa master',
     dimensions: '28cm x 18cm x 14cm',
     palletQty: '180 caixas por pallet padrão',
-    idealFor: 'Exposição em gôndolas de varejo gourmet, empórios de frios, presentes corporativos e receitas autorais refinadas.',
     description: 'Embalagem clássica que preserva a pureza do sabor e eleva o posicionamento de marca nas prateleiras e mesas de exposição gourmet.',
     highlights: ['Lacre metálico de segurança', 'Vidro esterilizado reutilizável', 'Exposição de marca de alto valor']
   }
@@ -995,25 +992,23 @@ Gostaria de solicitar proposta B2B para:
       </section>
 
       {/* ── SIMPLIFIED COMMERCIAL CATALOG SECTION ── */}
-      <section id="catalogo" className="py-24 px-6 sm:px-12 relative z-10">
-        <div className="max-w-7xl mx-auto space-y-16">
-          
-          {/* Cinematic Background Video Product Slider Showcase */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950 shadow-2xl py-20 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[850px] lg:min-h-[920px] w-full">
-            {/* Background Video */}
-            <video 
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover opacity-35 z-0"
-            >
-              <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
-            </video>
-            {/* Rich dark gradient overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/60 to-black/95 pointer-events-none z-0" />
+      <section id="catalogo" className="py-24 px-6 sm:px-12 relative overflow-hidden z-10">
+        {/* Background Video for the Entire Section */}
+        <video 
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        >
+          <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
+        </video>
 
+        <div className="max-w-7xl mx-auto space-y-16 relative z-10">
+          
+          {/* Cinematic Product Slider Showcase */}
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-transparent shadow-2xl py-20 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[850px] lg:min-h-[920px] w-full">
             <div className="w-full relative z-10 space-y-10">
               
               {/* Header Content */}
@@ -1598,10 +1593,7 @@ Gostaria de solicitar proposta B2B para:
                         <h4 className={`text-[10px] font-space-premium tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'} uppercase`}>Paletização Padrão</h4>
                         <p className={`text-xs font-semibold ${isDarkMode ? 'text-white' : 'text-zinc-800'} mt-0.5`}>{B2B_LOGISTICS_SPECS[selectedFormat]?.palletQty || B2B_LOGISTICS_SPECS['bisnaga'].palletQty}</p>
                       </div>
-                      <div>
-                        <h4 className={`text-[10px] font-space-premium tracking-wider ${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'} uppercase`}>Destinação Operacional</h4>
-                        <p className={`text-xs ${isDarkMode ? 'text-zinc-300' : 'text-zinc-650'} leading-relaxed mt-0.5`}>{B2B_LOGISTICS_SPECS[selectedFormat]?.idealFor || B2B_LOGISTICS_SPECS['bisnaga'].idealFor}</p>
-                      </div>
+
                     </div>
                   </div>
 

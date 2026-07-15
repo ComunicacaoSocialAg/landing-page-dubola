@@ -32,7 +32,6 @@ const LOGISTICS_SPECS = {
     weight: '1,5 kg por caixa master',
     dimensions: '22cm x 15cm x 18cm',
     palletQty: '240 caixas por pallet padrão',
-    idealFor: 'Mesas de restaurantes, hamburguerias, bistrôs e empórios de alta gastronomia.',
     description: 'A embalagem perfeita para contato direto com o cliente final na mesa. Design anatômico com válvula dosadora limpa que evita desperdícios e respingos acidentais, garantindo a higiene do salão.',
     highlights: ['Válvula corta-gotas de silicone', 'PET 100% reciclável livre de BPA', 'Exposição de marca na mesa']
   },
@@ -42,9 +41,8 @@ const LOGISTICS_SPECS = {
     weight: '1,1 kg por unidade',
     dimensions: '30cm x 20cm x 10cm',
     palletQty: '480 unidades por pallet padrão',
-    idealFor: 'Uso interno na cozinha (Back of House), preparação de pratos, reabastecimento de dispensers e alto giro.',
     description: 'Desenvolvido especificamente para chefs e operações de cozinha profissional. O formato bag maximiza o rendimento e permite a extração de até 99% do produto, gerando desperdício zero e agilizando o pré-paro de burgers e pratos.',
-    highlights: ['Bico dosador universal', 'Alta barreira contra oxigênio', 'Economia de espaço no descarte']
+    highlights: ['Alta barreira contra oxigênio', 'Economia de espaço no descarte']
   },
 };
 
@@ -557,10 +555,7 @@ export default function DubolaCommercialCatalogView() {
                     <h4 className="text-[10px] font-space-premium tracking-wider text-zinc-400 uppercase">Paletização Padrão</h4>
                     <p className="text-xs font-semibold text-white">{LOGISTICS_SPECS[selectedFormat].palletQty}</p>
                   </div>
-                  <div>
-                    <h4 className="text-[10px] font-space-premium tracking-wider text-zinc-400 uppercase">Destinação Operacional</h4>
-                    <p className="text-xs text-zinc-300 leading-relaxed">{LOGISTICS_SPECS[selectedFormat].idealFor}</p>
-                  </div>
+
                 </div>
 
                 <div className="bg-white/5 border border-white/10 rounded-xl p-4">
