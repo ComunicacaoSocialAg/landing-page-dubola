@@ -9,6 +9,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Cheddar Gothic Rough';
+  src: url('/fonts/CheddarGothicRough-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Cheddar Gothic Rough';
+  src: url('/fonts/CheddarGothicRough-Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: italic;
+}
+
 @theme {
   --color-cs-bg: #09090b; /* Zinc 950 */
   --color-cs-surface: #18181b; /* Zinc 900 */
@@ -22,7 +36,7 @@
   
   /* Font Family variables for Tailwind v4 */
   --font-display: 'Bebas Neue', sans-serif;
-  --font-cheddar: 'Cheddar Gothic Rough Regular', 'Cheddar Gothic Rough', 'Bebas Neue', sans-serif;
+  --font-cheddar: 'Cheddar Gothic Rough', 'Bebas Neue', sans-serif;
 }
 
 @layer base {

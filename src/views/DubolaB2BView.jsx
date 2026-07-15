@@ -907,236 +907,263 @@ Gostaria de solicitar proposta B2B para:
       <section id="catalogo" className="py-24 px-6 sm:px-12 relative z-10">
         <div className="max-w-7xl mx-auto space-y-16">
           
-          {/* Unified Video Banner Container (incorporating both the section header and the showcase video) */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950 shadow-2xl py-20 px-6 sm:px-16 flex flex-col items-center justify-center text-center min-h-[550px] md:min-h-[600px]">
+          {/* Cinematic Background Video Product Slider Showcase */}
+          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950 shadow-2xl py-20 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[850px] lg:min-h-[920px] w-full">
+            {/* Background Video */}
             <video 
               autoPlay
               loop
               muted
               playsInline
               preload="auto"
-              className="absolute inset-0 w-full h-full object-cover opacity-40"
+              className="absolute inset-0 w-full h-full object-cover opacity-35 z-0"
             >
               <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
             </video>
-            {/* Overlay gradient to keep high text readability */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/85 via-black/50 to-black/90 pointer-events-none" />
-            
-            {/* Overlaid content */}
-            <div className="relative z-10 max-w-4xl mx-auto space-y-8 flex flex-col items-center">
-              <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1.5 rounded-full text-[#ff003c] backdrop-blur-md">
-                <Package size={12} />
-                <span className="text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
+            {/* Rich dark gradient overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/95 via-black/60 to-black/95 pointer-events-none z-0" />
+
+            <div className="w-full relative z-10 space-y-10">
+              
+              {/* Header Content */}
+              <div className="space-y-4 max-w-4xl mx-auto">
+                <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1.5 rounded-full text-[#ff003c] backdrop-blur-md">
+                  <Package size={12} />
+                  <span className="text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
+                </div>
+                
+                <h2 className="font-display text-2xl sm:text-4xl md:text-[2.6rem] font-black uppercase text-white leading-tight">
+                  Mais do que assinar condimentos espetaculares, selamos um pacto de performance e crescimento com a sua operação.
+                </h2>
+                
+                <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl mx-auto font-sans-premium leading-relaxed">
+                  A Dubola nasceu para elevar o padrão da chapa à mesa: transformamos o comum em memorável para cozinhas que exigem qualidade absoluta.
+                </p>
               </div>
-              
-              <h2 className="font-display text-2xl sm:text-4xl md:text-[2.6rem] font-black uppercase text-white leading-tight max-w-3xl">
-                Mais do que assinar condimentos espetaculares, selamos um pacto de performance e crescimento com a sua operação.
-              </h2>
-              
-              <p className="text-xs sm:text-sm text-zinc-300 max-w-2xl font-sans-premium leading-relaxed">
-                A Dubola nasceu para elevar o padrão da chapa à mesa: transformamos o comum em memorável para cozinhas que exigem qualidade absoluta.
-              </p>
-              
-              <div className="w-12 h-1 bg-[#ff003c] rounded-full" />
-              
-              <div className="pt-6 space-y-2 border-t border-white/10 w-full max-w-xl">
+
+              {/* Quick-select Category Tabs */}
+              <div className="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-4xl mx-auto relative z-20">
+                {CATEGORIES_DATA.map((cat, idx) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setActiveCardIndex(idx)}
+                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-xs font-space-premium font-bold tracking-widest uppercase transition-all duration-300 border backdrop-blur-md ${
+                      activeCardIndex === idx
+                        ? 'bg-white/10 text-white border-white/20'
+                        : 'bg-black/40 text-zinc-400 border-white/5 hover:text-zinc-200 hover:border-white/10'
+                    }`}
+                    style={{
+                      borderColor: activeCardIndex === idx ? cat.color : undefined,
+                      boxShadow: activeCardIndex === idx ? `${cat.color}33 0px 0px 15px` : undefined
+                    }}
+                  >
+                    {cat.title}
+                  </button>
+                ))}
+              </div>
+
+              {/* Slider Container */}
+              <div className="relative w-full flex items-center justify-center py-4">
+                
+                {/* Desktop Navigation Arrows */}
+                <button
+                  type="button"
+                  onClick={() => setActiveCardIndex((prev) => (prev - 1 + CATEGORIES_DATA.length) % CATEGORIES_DATA.length)}
+                  className="hidden lg:flex absolute left-0 z-40 items-center justify-center w-14 h-14 rounded-full bg-black/60 hover:bg-black/80 border border-white/10 hover:border-white/20 text-white transition-all backdrop-blur-md shadow-lg group"
+                >
+                  <ChevronLeft size={24} className="group-hover:-translate-x-0.5 transition-transform" />
+                </button>
+                
+                <button
+                  type="button"
+                  onClick={() => setActiveCardIndex((prev) => (prev + 1) % CATEGORIES_DATA.length)}
+                  className="hidden lg:flex absolute right-0 z-40 items-center justify-center w-14 h-14 rounded-full bg-black/60 hover:bg-black/80 border border-white/10 hover:border-white/20 text-white transition-all backdrop-blur-md shadow-lg group"
+                >
+                  <ChevronRight size={24} className="group-hover:translate-x-0.5 transition-transform" />
+                </button>
+
+                {/* Slider Viewport with Perspective */}
+                <div 
+                  className="w-full max-w-4xl min-h-[490px] md:min-h-[500px] relative overflow-visible flex items-center justify-center"
+                  style={{ perspective: '1200px' }}
+                  onTouchStart={handleTouchStart}
+                  onTouchMove={handleTouchMove}
+                  onTouchEnd={handleTouchEnd}
+                >
+                  {CATEGORIES_DATA.map((cat, idx) => {
+                    // Calculate circular relative distance
+                    let dist = idx - activeCardIndex;
+                    if (dist < -2) dist += 5;
+                    if (dist > 2) dist -= 5;
+
+                    const isActive = dist === 0;
+                    const isPrev = dist === -1;
+                    const isNext = dist === 1;
+
+                    let transformStyle = '';
+                    let opacityStyle = 0;
+                    let zIndexStyle = 10;
+                    let pointerEvents = 'none';
+                    let filterStyle = 'none';
+
+                    if (isActive) {
+                      transformStyle = 'translateX(0px) scale(1) translateZ(0px)';
+                      opacityStyle = 1;
+                      zIndexStyle = 30;
+                      pointerEvents = 'auto';
+                    } else if (isPrev) {
+                      transformStyle = 'translateX(-320px) scale(0.8) translateZ(-150px) rotateY(15deg)';
+                      opacityStyle = 0.35;
+                      zIndexStyle = 20;
+                      pointerEvents = 'auto';
+                      filterStyle = 'blur(1px)';
+                    } else if (isNext) {
+                      transformStyle = 'translateX(320px) scale(0.8) translateZ(-150px) rotateY(-15deg)';
+                      opacityStyle = 0.35;
+                      zIndexStyle = 20;
+                      pointerEvents = 'auto';
+                      filterStyle = 'blur(1px)';
+                    } else {
+                      transformStyle = `translateX(${dist * 400}px) scale(0.6) translateZ(-300px)`;
+                      opacityStyle = 0;
+                      zIndexStyle = 10;
+                      filterStyle = 'blur(4px)';
+                    }
+
+                    return (
+                      <div
+                        key={cat.id}
+                        onClick={() => !isActive && setActiveCardIndex(idx)}
+                        className={`absolute transition-all duration-700 ease-out w-full max-w-[92vw] sm:max-w-3xl rounded-[2.5rem] border overflow-hidden shadow-2xl flex flex-col md:flex-row gap-6 md:gap-8 p-6 sm:p-8 md:p-10 text-left ${
+                          isDarkMode 
+                            ? 'bg-zinc-950/80 border-white/[0.08] text-white shadow-black/80' 
+                            : 'bg-white/95 border-zinc-200/80 text-zinc-900 shadow-zinc-950/10'
+                        } ${!isActive ? 'cursor-pointer select-none' : ''}`}
+                        style={
+                          isMobile 
+                            ? {
+                                transform: `translateX(${(idx - activeCardIndex) * 105}%) scale(${isActive ? 1 : 0.93})`,
+                                opacity: isActive ? 1 : 0.4,
+                                zIndex: isActive ? 30 : 10,
+                                pointerEvents: isActive ? 'auto' : 'none',
+                                transition: 'transform 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.5s',
+                              }
+                            : {
+                                transform: transformStyle,
+                                opacity: opacityStyle,
+                                zIndex: zIndexStyle,
+                                pointerEvents: pointerEvents,
+                                filter: filterStyle,
+                                borderColor: isActive ? `${cat.color}40` : undefined,
+                                boxShadow: isActive ? `${cat.color}15 0px 25px 50px -12px` : undefined
+                              }
+                        }
+                      >
+                        {/* Left Column - Product Image */}
+                        <div className="w-full md:w-[42%] aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-zinc-900/60 border border-white/5 relative shrink-0">
+                          <img 
+                            src={cat.image} 
+                            alt={cat.title} 
+                            className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />
+                        </div>
+
+                        {/* Right Column - Copy Details */}
+                        <div className="flex-1 flex flex-col justify-between space-y-4 md:space-y-6">
+                          <div className="space-y-3">
+                            <div>
+                              <span className={`text-[10px] sm:text-xs font-space-premium font-black uppercase tracking-[0.2em] mb-1.5 block ${cat.textColorClass}`}>
+                                {cat.line}
+                              </span>
+                              <h4 className="font-space-premium font-black text-xl sm:text-2xl md:text-3xl uppercase tracking-wider">
+                                {cat.title}
+                              </h4>
+                            </div>
+                            
+                            <div className="space-y-2.5">
+                              <p className="text-xs sm:text-sm font-sans-premium font-bold leading-snug">
+                                {cat.slogan}
+                              </p>
+                              <div className={`text-[10px] sm:text-[11px] font-space-premium font-black uppercase tracking-wider ${cat.textColorClass}`}>
+                                {cat.flavors}
+                              </div>
+                              <p className={`text-[11px] sm:text-xs font-sans-premium leading-relaxed ${isDarkMode ? 'text-zinc-400' : 'text-zinc-650'}`}>
+                                {cat.description}
+                              </p>
+                            </div>
+                          </div>
+
+                          <div className={`pt-4 border-t ${isDarkMode ? 'border-zinc-900/80' : 'border-zinc-200/80'} space-y-3`}>
+                            <div>
+                              <p className={`text-[9px] sm:text-[10px] font-space-premium font-bold uppercase tracking-widest mb-2.5 ${isDarkMode ? 'text-zinc-550' : 'text-zinc-500'}`}>
+                                Formatos Disponíveis
+                              </p>
+                              <div className="flex flex-wrap gap-1.5">
+                                {cat.formats.map((f) => (
+                                  <span 
+                                    key={f} 
+                                    className={`text-[10px] sm:text-xs font-space-premium font-bold px-3 py-1.5 rounded-lg border ${
+                                      isDarkMode 
+                                        ? 'bg-white/5 text-zinc-300 border-white/[0.04]' 
+                                        : 'bg-[#f7f0d5] text-zinc-700 border-[#eae1c0]'
+                                    }`}
+                                  >
+                                    {f}
+                                  </span>
+                                ))}
+                              </div>
+                            </div>
+
+                            {cat.extra && (
+                              <div className="flex items-start gap-1.5 mt-2">
+                                <span className="text-[8px] sm:text-[9px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2 py-0.5 rounded border border-[#ff003c]/15 shrink-0 mt-0.5">
+                                  Pote de Vidro *
+                                </span>
+                                <span className={`text-[9px] sm:text-[10px] font-sans-premium leading-snug ${isDarkMode ? 'text-zinc-550' : 'text-zinc-400'}`}>
+                                  Disponível apenas para Maionese Tradicional
+                                </span>
+                              </div>
+                            )}
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Dots Indicator */}
+              <div className="flex justify-center items-center gap-2.5 pt-4">
+                {CATEGORIES_DATA.map((cat, idx) => (
+                  <button
+                    key={cat.id}
+                    type="button"
+                    onClick={() => setActiveCardIndex(idx)}
+                    className={`transition-all duration-300 rounded-full ${
+                      activeCardIndex === idx 
+                        ? 'w-8 h-2' 
+                        : 'w-2 h-2 bg-white/30 hover:bg-white/50'
+                    }`}
+                    style={{
+                      backgroundColor: activeCardIndex === idx ? cat.color : undefined
+                    }}
+                    aria-label={`Ir para slide ${idx + 1}`}
+                  />
+                ))}
+              </div>
+
+              {/* Bottom Info Banner */}
+              <div className="pt-6 space-y-2 border-t border-white/10 w-full max-w-xl mx-auto text-center">
                 <span className="text-[8px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">EXCELÊNCIA EM TODOS OS DETALHES</span>
-                <h3 className="font-display text-base sm:text-lg font-bold uppercase text-white/90">A Linha Completa Dubola</h3>
+                <h3 className="font-display text-sm sm:text-base font-bold uppercase text-white/90">A Linha Completa Dubola</h3>
                 <p className="text-[10px] sm:text-xs text-zinc-450 font-sans-premium max-w-md mx-auto leading-relaxed">
                   Nossos produtos unem sabores autorais e ingredientes 100% selecionados a uma engenharia de embalagens voltada para rendimento, facilidade de uso e conservação de sabor.
                 </p>
               </div>
-            </div>
-          </div>
 
-          {/* Category Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Ketchups Category */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-6">
-                <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/b2b-ketchup.png" alt="Linha Ketchups" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-[#ff003c] uppercase tracking-[0.2em] mb-1.5 block">LINHA KETCHUP</span>
-                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Ketchups de Autor</h4>
-                  </div>
-                  <div className="space-y-3">
-                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
-                      Escolhemos ingredientes selecionados que respeitam o consumidor e valorizam cada receita.
-                    </p>
-                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-[#ff003c] uppercase tracking-wider">
-                      Tradicional • com Goiaba • Picante
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
-                <div>
-                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
-
-            {/* Maioneses Category */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-6">
-                <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/b2b-maionese.png" alt="Linha Maioneses" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-sky-450 uppercase tracking-[0.2em] mb-1.5 block">LINHA MAIONESE</span>
-                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Maioneses Especiais</h4>
-                  </div>
-                  <div className="space-y-3">
-                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
-                      Feita para valorizar o sabor de cada receita.
-                    </p>
-                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-sky-450 uppercase tracking-wider">
-                      Tradicional • Alho • Tártaro • Alho Poró & Ervas Finas
-                    </div>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
-                      Ingredientes selecionados. Receita autêntica. Feita para quem acredita que uma boa maionese deve completar a receita, nunca a esconder.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
-                <div>
-                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
-                  <div className="space-y-3">
-                    <div className="flex flex-wrap gap-1.5">
-                      {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                        <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
-                      ))}
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-[9px] sm:text-[10px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2.5 py-1 rounded-lg border border-[#ff003c]/10 shrink-0">Pote de Vidro *</span>
-                      <span className="text-[9px] sm:text-[10px] text-zinc-550 font-sans-premium leading-none">* Disponível apenas para Maionese Tradicional</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Barbecues Category */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-6">
-                <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/b2b-barbecue.png" alt="Linha Barbecues" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-amber-500 uppercase tracking-[0.2em] mb-1.5 block">LINHA BARBECUE</span>
-                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Barbecue Premium</h4>
-                  </div>
-                  <div className="space-y-3">
-                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
-                      Sabor marcante, versatilidade e autenticidade para criar novas experiências.
-                    </p>
-                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-amber-500 uppercase tracking-wider">
-                      Tradicional • com Goiaba • Picante
-                    </div>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
-                      Vários sabores. Muitas oportunidades.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
-                <div>
-                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Mostardas Category */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors">
-              <div className="space-y-6">
-                <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/b2b-mostarda.png" alt="Linha Mostardas" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-yellow-450 uppercase tracking-[0.2em] mb-1.5 block">LINHA MOSTARDA</span>
-                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Mostardas Especiais</h4>
-                  </div>
-                  <div className="space-y-3">
-                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
-                      Equilíbrio entre intensidade e sabor.
-                    </p>
-                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-yellow-450 uppercase tracking-wider">
-                      Tradicional • Dijon
-                    </div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
-                <div>
-                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['Bisnaga', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold ${isDarkMode ? 'bg-white/5 text-zinc-300 border-white/[0.02]' : 'bg-[#f7f0d5] text-zinc-750 border-[#eae1c0]'} px-3 py-1.5 rounded-lg border`}>{f}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* Molhos de Tomate Category */}
-            <div className="glass-premium p-6 sm:p-8 rounded-3xl border border-white/[0.03] text-left flex flex-col justify-between hover:border-zinc-800 transition-colors md:col-span-2 lg:col-span-1">
-              <div className="space-y-6">
-                <div className="aspect-[4/3] w-full rounded-2xl overflow-hidden bg-zinc-950 border border-white/[0.02]">
-                  <img src="/b2b-molho-tomate.png" alt="Linha Molhos de Tomate" className="w-full h-full object-cover" />
-                </div>
-                <div className="space-y-4">
-                  <div>
-                    <span className="text-[10px] sm:text-xs font-space-premium font-black text-emerald-400 uppercase tracking-[0.2em] mb-1.5 block">LINHA TOMATE</span>
-                    <h4 className={`font-space-premium font-black text-xl sm:text-2xl ${isDarkMode ? 'text-white' : 'text-zinc-900'} uppercase tracking-wider`}>Molhos de Tomate</h4>
-                  </div>
-                  <div className="space-y-3">
-                    <p className={`text-xs sm:text-sm font-sans-premium font-semibold ${isDarkMode ? 'text-zinc-200' : 'text-zinc-800'} leading-snug`}>
-                      Tomate. Como deve ser. O tomate é o protagonista.
-                    </p>
-                    <div className="text-[10px] sm:text-[11px] font-space-premium font-black text-emerald-400 uppercase tracking-wider">
-                      Tradicional ao Sugo • Tradicional com Pedaços • Rústico com Alho-Poró e Ervas Finas
-                    </div>
-                    <p className="text-[11px] sm:text-xs text-zinc-400 font-sans-premium leading-relaxed">
-                      Acreditamos que um bom molho de tomate começa muito antes da panela. Começa na escolha de ingredientes que respeitam a receita, o cozinheiro e, principalmente, quem vai sentar à mesa.
-                    </p>
-                  </div>
-                </div>
-              </div>
-              
-              <div className={`pt-6 border-t ${isDarkMode ? 'border-zinc-900' : 'border-[#eae1c0]'} mt-6 space-y-4`}>
-                <div>
-                  <p className="text-[9px] sm:text-[10px] font-space-premium font-bold text-zinc-550 uppercase tracking-widest mb-3">Formatos Disponíveis</p>
-                  <div className="flex flex-wrap gap-1.5">
-                    {['Pote de Vidro 320g', 'Bag 1,01kg'].map((f) => (
-                      <span key={f} className={`text-[10px] sm:text-xs font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-3 py-1.5 rounded-lg border border-[#ff003c]/10`}>{f}</span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-
           </div>
 
           {/* ── FORMATS & DISTRIBUTION INTERACTIVE MATRIX ── */}
