@@ -270,6 +270,7 @@ export default function DubolaB2BView() {
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       smoothWheel: true,
     });
+    window.lenisInstance = lenis;
     lenis.on('scroll', ScrollTrigger.update);
     lenis.scrollTo(0, { immediate: true });
     
@@ -278,6 +279,7 @@ export default function DubolaB2BView() {
 
     return () => {
       lenis.destroy();
+      window.lenisInstance = null;
       document.head.removeChild(link);
     };
   }, []);
@@ -473,7 +475,7 @@ export default function DubolaB2BView() {
         { scale: 0.8, rotate: -15, opacity: 0 },
         {
           scale: 1,
-          rotate: -3,
+          rotate: -7,
           opacity: 1,
           duration: 1,
           delay: 0.3,
@@ -950,17 +952,17 @@ Gostaria de solicitar proposta B2B para:
           {/* Header of Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-16 lg:mb-24 w-full select-none">
             {/* Title Column */}
-            <div className="lg:col-span-6 relative inline-flex items-end manifesto-header opacity-0 w-full">
-              <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none">
+            <div className="lg:col-span-6 relative inline-flex items-center manifesto-header opacity-0 w-full">
+              <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none relative w-full">
                 O JEITO DUBOLA
+                <span className="absolute top-[-30%] left-[65%] w-[45%] z-20 manifesto-cursive opacity-0 block">
+                  <img 
+                    src="/como-deve-ser-branco.png" 
+                    alt="Como deve ser" 
+                    className="w-full h-auto object-contain transform -rotate-6 select-none filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
+                  />
+                </span>
               </h2>
-              <div className="absolute -bottom-8 right-0 left-auto sm:right-auto sm:left-[70%] -translate-x-2 sm:-translate-x-12 w-40 sm:w-56 lg:w-64 z-20 manifesto-cursive opacity-0">
-                <img 
-                  src="/como-deve-ser-branco.png" 
-                  alt="Como deve ser" 
-                  className="w-full h-auto object-contain transform -rotate-6 select-none"
-                />
-              </div>
             </div>
             
             {/* Subtitle Column */}
