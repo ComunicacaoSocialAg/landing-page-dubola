@@ -98,6 +98,85 @@ const B2B_LOGISTICS_SPECS = {
   }
 };
 
+const CATEGORIES_DATA = [
+  {
+    id: 'ketchups',
+    line: 'LINHA KETCHUP',
+    title: 'Ketchups de Autor',
+    slogan: 'Escolhemos ingredientes selecionados que respeitam o consumidor e valorizam cada receita.',
+    flavors: 'Tradicional • com Goiaba • Picante',
+    description: 'Sabores marcantes produzidos com tomates selecionados, acidez equilibrada e textura ideal para finalizações.',
+    image: '/b2b-ketchup.png',
+    color: '#ff003c',
+    textColorClass: 'text-[#ff003c]',
+    bgHoverClass: 'hover:bg-[#ff003c]/10',
+    borderHoverClass: 'hover:border-[#ff003c]/30',
+    badgeColorClass: 'bg-[#ff003c]/10 text-[#ff003c] border-[#ff003c]/20',
+    formats: ['Bisnaga', 'Bag 1,01kg']
+  },
+  {
+    id: 'maioneses',
+    line: 'LINHA MAIONESE',
+    title: 'Maioneses Especiais',
+    slogan: 'Feita para valorizar o sabor de cada receita.',
+    flavors: 'Tradicional • Alho • Tártaro • Alho Poró & Ervas Finas',
+    description: 'Ingredientes selecionados. Receita autêntica. Feita para quem acredita que uma boa maionese deve completar a receita, nunca a esconder.',
+    image: '/b2b-maionese.png',
+    color: '#38bdf8', // sky-400
+    textColorClass: 'text-sky-450',
+    bgHoverClass: 'hover:bg-sky-400/10',
+    borderHoverClass: 'hover:border-sky-400/30',
+    badgeColorClass: 'bg-sky-450/10 text-sky-450 border-sky-450/20',
+    formats: ['Bisnaga', 'Bag 1,01kg'],
+    extra: 'Pote de Vidro * - Disponível apenas para Maionese Tradicional'
+  },
+  {
+    id: 'barbecues',
+    line: 'LINHA BARBECUE',
+    title: 'Barbecue Premium',
+    slogan: 'Sabor marcante, versatilidade e autenticidade para criar novas experiências.',
+    flavors: 'Tradicional • com Goiaba • Picante',
+    description: 'Vários sabores. Muitas oportunidades.',
+    image: '/b2b-barbecue.png',
+    color: '#f59e0b', // amber-500
+    textColorClass: 'text-amber-500',
+    bgHoverClass: 'hover:bg-amber-500/10',
+    borderHoverClass: 'hover:border-amber-500/30',
+    badgeColorClass: 'bg-amber-500/10 text-amber-500 border-amber-500/20',
+    formats: ['Bisnaga', 'Bag 1,01kg']
+  },
+  {
+    id: 'mostardas',
+    line: 'LINHA MOSTARDA',
+    title: 'Mostardas Especiais',
+    slogan: 'Equilíbrio entre intensidade e sabor.',
+    flavors: 'Tradicional • Dijon',
+    description: 'Sementes selecionadas e formulações que preservam a picância na medida certa.',
+    image: '/b2b-mostarda.png',
+    color: '#fbbf24', // yellow-400
+    textColorClass: 'text-yellow-450',
+    bgHoverClass: 'hover:bg-yellow-450/10',
+    borderHoverClass: 'hover:border-yellow-450/30',
+    badgeColorClass: 'bg-yellow-450/10 text-yellow-450 border-yellow-450/20',
+    formats: ['Bisnaga', 'Bag 1,01kg']
+  },
+  {
+    id: 'tomates',
+    line: 'LINHA TOMATE',
+    title: 'Molhos de Tomate',
+    slogan: 'Tomate. Como deve ser. O tomate é o protagonista.',
+    flavors: 'Tradicional ao Sugo • Tradicional com Pedaços • Rústico com Alho-Poró e Ervas Finas',
+    description: 'Acreditamos que um bom molho de tomate começa muito antes da panela. Começa na escolha de ingredientes que respeitam a receita, o cozinheiro e, principalmente, quem vai sentar à mesa.',
+    image: '/b2b-molho-tomate.png',
+    color: '#34d399', // emerald-400
+    textColorClass: 'text-emerald-400',
+    bgHoverClass: 'hover:bg-emerald-400/10',
+    borderHoverClass: 'hover:border-emerald-400/30',
+    badgeColorClass: 'bg-emerald-400/10 text-emerald-400 border-emerald-400/20',
+    formats: ['Pote de Vidro 320g', 'Bag 1,01kg']
+  }
+];
+
 export default function DubolaB2BView() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [preloaderActive, setPreloaderActive] = useState(true);
@@ -128,7 +207,33 @@ export default function DubolaB2BView() {
     }
   };
   const [activeCategoryTab, setActiveCategoryTab] = useState('ketchups');
+  const [activeCardIndex, setActiveCardIndex] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
+
+  // Touch coordinates for mobile swipe gestures
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.touches[0].clientX;
+    touchEndX.current = e.touches[0].clientX; // Initialize to avoid offset on tap
+  };
+
+  const handleTouchMove = (e) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    const diff = touchStartX.current - touchEndX.current;
+    const swipeThreshold = 50;
+    if (diff > swipeThreshold) {
+      // Swiped left -> Next card
+      setActiveCardIndex((prev) => (prev + 1) % CATEGORIES_DATA.length);
+    } else if (diff < -swipeThreshold) {
+      // Swiped right -> Previous card
+      setActiveCardIndex((prev) => (prev - 1 + CATEGORIES_DATA.length) % CATEGORIES_DATA.length);
+    }
+  };
   
   // Ref elements for GSAP
   const heroRef = useRef(null);
