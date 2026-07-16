@@ -972,25 +972,25 @@ Gostaria de solicitar proposta B2B para:
             <div className="lg:col-span-7 relative inline-flex items-center manifesto-header opacity-0 w-full">
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none relative w-full">
                 O JEITO DUBOLA
-                <span className="absolute top-[-40%] lg:top-[-30%] left-[60%] lg:left-[85%] w-[45%] lg:w-[42%] z-20 manifesto-cursive opacity-0 block">
-                  <img 
-                    src="/como-deve-ser-branco.png" 
-                    alt="Como deve ser" 
-                    className="w-full h-auto object-contain transform -rotate-3 select-none"
-                    style={{
-                      filter: 'drop-shadow(0px 3px 6px rgba(0,0,0,0.4))'
-                    }}
-                  />
-                </span>
               </h2>
             </div>
             
             {/* Subtitle Column */}
-            <div className="lg:col-span-5 lg:text-right manifesto-header-right opacity-0 w-full">
+            <div className="lg:col-span-5 lg:text-right manifesto-header-right opacity-0 w-full flex flex-row lg:flex-row-reverse items-center justify-start lg:justify-end gap-4">
               <p className="font-cheddar text-xl sm:text-2xl lg:text-[2rem] leading-none tracking-tight text-white uppercase">
                 A DUBOLA NASCEU PARA RESGATAR<br />
                 A AUTENTICIDADE DOS SABORES.
               </p>
+              <div className="w-[110px] sm:w-[130px] shrink-0 select-none manifesto-cursive opacity-0">
+                <img 
+                  src="/como-deve-ser-branco.png" 
+                  alt="Como deve ser" 
+                  className="w-full h-auto object-contain transform -rotate-6 select-none"
+                  style={{
+                    filter: 'drop-shadow(0px 3px 6px rgba(0,0,0,0.4))'
+                  }}
+                />
+              </div>
             </div>
           </div>
 
