@@ -948,74 +948,94 @@ Gostaria de solicitar proposta B2B para:
         ref={manifestoRef}
         className="relative w-full overflow-hidden bg-[#62070e] py-24 lg:py-32 px-6 flex items-center z-10 border-t border-white/[0.02]"
       >
+        {/* Background image for desktop (lg) */}
+        <div className="absolute inset-0 hidden lg:block z-0">
+          <img 
+            src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
+            alt="" 
+            className="w-full h-full object-cover object-right pointer-events-none select-none"
+          />
+          {/* Subtle overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-black/5" />
+        </div>
+
+        {/* Background gradient for mobile */}
+        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-[#62070e] via-[#760811] to-[#b6192c] pointer-events-none select-none" />
+
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header of Section */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-end mb-16 lg:mb-24 w-full select-none">
             {/* Title Column */}
-            <div className="lg:col-span-6 relative inline-flex items-center manifesto-header opacity-0 w-full">
+            <div className="lg:col-span-7 relative inline-flex items-center manifesto-header opacity-0 w-full">
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none relative w-full">
                 O JEITO DUBOLA
-                <span className="absolute top-[-30%] left-[65%] w-[45%] z-20 manifesto-cursive opacity-0 block">
+                <span className="absolute top-[-30%] left-[80%] w-[38%] lg:w-[42%] z-20 manifesto-cursive opacity-0 block">
                   <img 
                     src="/como-deve-ser-branco.png" 
                     alt="Como deve ser" 
-                    className="w-full h-auto object-contain transform -rotate-6 select-none filter drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]"
+                    className="w-full h-auto object-contain transform -rotate-6 select-none"
+                    style={{
+                      filter: 'drop-shadow(0px 3px 6px rgba(0,0,0,0.4))'
+                    }}
                   />
                 </span>
               </h2>
             </div>
             
             {/* Subtitle Column */}
-            <div className="lg:col-span-6 lg:text-left manifesto-header-right opacity-0 w-full">
-              <p className="font-display text-2xl sm:text-3xl lg:text-[2.2rem] leading-none tracking-widest text-white uppercase">
+            <div className="lg:col-span-5 lg:text-right manifesto-header-right opacity-0 w-full">
+              <p className="font-cheddar text-xl sm:text-2xl lg:text-[2rem] leading-none tracking-tight text-white uppercase">
                 A DUBOLA NASCEU PARA RESGATAR<br />
-                A AUTENTICIDADES DOS SABORES.
+                A AUTENTICIDADE DOS SABORES.
               </p>
             </div>
           </div>
 
           {/* Grid container */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left column: Manifesto text */}
             <div className="lg:col-span-6 space-y-10 select-none">
               {/* Paragraph 1 */}
-              <p className="font-display uppercase tracking-widest text-2xl sm:text-3xl lg:text-4xl text-white font-bold manifesto-p opacity-0 leading-none">
+              <p className="font-cheddar uppercase tracking-tight text-2xl sm:text-3xl lg:text-4xl text-white manifesto-p opacity-0 leading-none">
                 NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
               </p>
 
               {/* Paragraph 2 */}
-              <p className="font-display uppercase tracking-widest text-base sm:text-lg lg:text-[1.25rem] text-white/70 font-normal leading-snug max-w-xl manifesto-p opacity-0">
-                FAZEMOS <span className="text-white font-black">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-black">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
+              <p className="font-cheddar uppercase tracking-tight text-base sm:text-lg lg:text-[1.25rem] text-white/70 leading-snug max-w-xl manifesto-p opacity-0">
+                FAZEMOS <span className="text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-bold">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
               </p>
 
               {/* Paragraph 3 */}
-              <div className="font-display uppercase tracking-widest text-base sm:text-lg lg:text-[1.25rem] text-white/70 font-normal leading-snug space-y-1.5 manifesto-p opacity-0">
-                <p>ACREDITAMOS QUE <span className="text-white font-black">SABOR</span> NÃO ACEITA <span className="text-white font-black">ATALHOS</span>.</p>
-                <p>ACREDITAMOS QUE <span className="text-white font-black">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                <p>É UMA <span className="text-white font-black">OBRIGAÇÃO</span>.</p>
-                <p>ACREDITAMOS QUE <span className="text-white font-black">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+              <div className="font-cheddar uppercase tracking-tight text-base sm:text-lg lg:text-[1.25rem] text-white/70 leading-snug space-y-1.5 manifesto-p opacity-0">
+                <p>ACREDITAMOS QUE <span className="text-white">SABOR</span> NÃO ACEITA <span className="text-white">ATALHOS</span>.</p>
+                <p>ACREDITAMOS QUE <span className="text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
+                <p className="pl-12 md:pl-28">É UMA <span className="text-white">OBRIGAÇÃO</span>.</p>
+                <p>ACREDITAMOS QUE <span className="text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
               </div>
 
               {/* Paragraph 4 */}
-              <p className="font-display uppercase tracking-widest text-base sm:text-lg lg:text-[1.25rem] text-white/70 font-normal leading-snug manifesto-p opacity-0">
-                ACREDITAMOS QUE <span className="text-white font-black">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
+              <p className="font-cheddar uppercase tracking-tight text-base sm:text-lg lg:text-[1.25rem] text-white/70 leading-snug manifesto-p opacity-0">
+                ACREDITAMOS QUE <span className="text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
               </p>
 
               {/* Paragraph 5 */}
-              <div className="font-display uppercase tracking-widest text-[#1f2d24] font-black space-y-1 pt-6 manifesto-p opacity-0">
+              <div className="font-cheddar uppercase tracking-tight text-[#8cd867] space-y-1 pt-6 manifesto-p opacity-0">
                 <p className="text-2xl sm:text-3xl lg:text-[2rem] leading-none">E ACREDITAMOS QUE UM BOM MOLHO</p>
-                <p className="text-3xl sm:text-4xl lg:text-[2.4rem] leading-none">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+                <p className="text-3xl sm:text-4xl lg:text-[2.4rem] leading-none text-white">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
               </div>
             </div>
 
-            {/* Right column: Image */}
-            <div className="lg:col-span-6 w-full flex justify-center lg:justify-end manifesto-bottles opacity-0">
+            {/* Right column: Image visible ONLY on mobile/tablet */}
+            <div className="lg:col-span-6 lg:hidden w-full flex justify-center mt-12 manifesto-bottles opacity-0">
               <img 
                 src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
                 alt="Ketchups Dubola" 
-                className="w-full max-w-2xl object-contain"
+                className="w-full max-w-lg object-contain drop-shadow-2xl"
               />
             </div>
+            
+            {/* Empty column on desktop to let the background bottles shine */}
+            <div className="lg:col-span-6 hidden lg:block" />
           </div>
         </div>
       </section>
@@ -1065,8 +1085,8 @@ Gostaria de solicitar proposta B2B para:
                     onClick={() => setActiveCardIndex(idx)}
                     className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-xs font-space-premium font-bold tracking-widest uppercase transition-all duration-300 border backdrop-blur-md ${
                       activeCardIndex === idx
-                        ? 'bg-white/10 text-white border-white/20'
-                        : 'bg-black/40 text-zinc-400 border-white/5 hover:text-zinc-200 hover:border-white/10'
+                        ? 'bg-white/10 text-white'
+                        : 'bg-zinc-950/65 text-zinc-300 hover:text-white border-white/10 hover:border-white/20 hover:bg-zinc-900/80'
                     }`}
                     style={{
                       borderColor: activeCardIndex === idx ? cat.color : undefined,
