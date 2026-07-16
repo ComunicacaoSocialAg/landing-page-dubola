@@ -101,7 +101,7 @@ const CATEGORIES_DATA = [
   {
     id: 'ketchups',
     line: 'LINHA KETCHUP',
-    title: 'Ketchups de Autor',
+    title: 'Ketchups',
     slogan: 'Escolhemos ingredientes selecionados que respeitam o consumidor e valorizam cada receita.',
     flavors: 'Tradicional • com Goiaba • Picante',
     description: 'Sabores marcantes produzidos com tomates selecionados, acidez equilibrada e textura ideal para finalizações.',
@@ -116,7 +116,7 @@ const CATEGORIES_DATA = [
   {
     id: 'maioneses',
     line: 'LINHA MAIONESE',
-    title: 'Maioneses Especiais',
+    title: 'Maionese',
     slogan: 'Feita para valorizar o sabor de cada receita.',
     flavors: 'Tradicional • Alho • Tártaro • Alho Poró & Ervas Finas',
     description: 'Ingredientes selecionados. Receita autêntica. Feita para quem acredita que uma boa maionese deve completar a receita, nunca a esconder.',
