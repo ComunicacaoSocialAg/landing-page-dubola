@@ -996,32 +996,32 @@ Gostaria de solicitar proposta B2B para:
             {/* Left column: Manifesto text */}
             <div className="lg:col-span-6 space-y-10 select-none">
               {/* Paragraph 1 */}
-              <p className="font-cheddar uppercase tracking-tight text-2xl sm:text-3xl lg:text-4xl text-white manifesto-p opacity-0 leading-none">
+              <p className="font-display uppercase tracking-wider text-3xl sm:text-4xl lg:text-[2.6rem] text-white manifesto-p opacity-0 leading-none">
                 NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
               </p>
 
               {/* Paragraph 2 */}
-              <p className="font-cheddar uppercase tracking-tight text-base sm:text-lg lg:text-[1.25rem] text-white/70 leading-snug max-w-xl manifesto-p opacity-0">
-                FAZEMOS <span className="text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="text-white font-bold">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
+              <p className="font-display uppercase tracking-wider text-xl sm:text-2xl lg:text-[1.65rem] text-white leading-snug max-w-xl manifesto-p opacity-0">
+                FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
               </p>
 
               {/* Paragraph 3 */}
-              <div className="font-cheddar uppercase tracking-tight text-base sm:text-lg lg:text-[1.25rem] text-white/70 leading-snug space-y-1.5 manifesto-p opacity-0">
-                <p>ACREDITAMOS QUE <span className="text-white">SABOR</span> NÃO ACEITA <span className="text-white">ATALHOS</span>.</p>
-                <p>ACREDITAMOS QUE <span className="text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                <p className="pl-12 md:pl-28">É UMA <span className="text-white">OBRIGAÇÃO</span>.</p>
-                <p>ACREDITAMOS QUE <span className="text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+              <div className="font-display uppercase tracking-wider text-xl sm:text-2xl lg:text-[1.65rem] text-white leading-snug space-y-2 manifesto-p opacity-0">
+                <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
+                <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
+                <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
+                <p>ACREDITAMOS QUE <span className="font-bold text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
               </div>
 
               {/* Paragraph 4 */}
-              <p className="font-cheddar uppercase tracking-tight text-base sm:text-lg lg:text-[1.25rem] text-white/70 leading-snug manifesto-p opacity-0">
-                ACREDITAMOS QUE <span className="text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
+              <p className="font-display uppercase tracking-wider text-xl sm:text-2xl lg:text-[1.65rem] text-white leading-snug manifesto-p opacity-0">
+                ACREDITAMOS QUE <span className="font-bold text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
               </p>
 
               {/* Paragraph 5 */}
-              <div className="font-cheddar uppercase tracking-tight text-[#8cd867] space-y-1 pt-6 manifesto-p opacity-0">
+              <div className="font-cheddar uppercase tracking-tight text-black space-y-1 pt-6 manifesto-p opacity-0">
                 <p className="text-2xl sm:text-3xl lg:text-[2rem] leading-none">E ACREDITAMOS QUE UM BOM MOLHO</p>
-                <p className="text-3xl sm:text-4xl lg:text-[2.4rem] leading-none text-white">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+                <p className="text-3xl sm:text-4xl lg:text-[2.4rem] leading-none">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
               </div>
             </div>
 
