@@ -827,6 +827,9 @@ Gostaria de solicitar proposta B2B para:
           style={{ backgroundImage: "url('/hero-final-clean.jpg')" }}
         />
 
+        {/* Subtle dark overlay for desktop text contrast (covers both video and image backdrop) */}
+        <div className="absolute inset-0 bg-black/30 z-10 pointer-events-none" />
+
         {/* ── MAIN CONTENT GRID: exact match to the reference layout ── */}
         <div className={`
           absolute inset-0 z-20 flex w-full h-full
@@ -995,28 +998,32 @@ Gostaria de solicitar proposta B2B para:
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left column: Manifesto text */}
             <div className="lg:col-span-6 space-y-8 select-none">
-              {/* Paragraph 1 */}
-              <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
-                NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
-              </p>
+              
+              {/* Glass container for body text */}
+              <div className="bg-black/15 backdrop-blur-md border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 shadow-xl max-w-xl">
+                {/* Paragraph 1 */}
+                <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
+                  NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
+                </p>
 
-              {/* Paragraph 2 */}
-              <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
-                FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
-              </p>
+                {/* Paragraph 2 */}
+                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
+                  FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
+                </p>
 
-              {/* Paragraph 3 */}
-              <div className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug space-y-2 manifesto-p opacity-0">
-                <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
-                <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
-                <p>ACREDITAMOS QUE <span className="font-bold text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+                {/* Paragraph 3 */}
+                <div className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug space-y-2 manifesto-p opacity-0">
+                  <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
+                  <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
+                  <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
+                  <p>ACREDITAMOS QUE <span className="font-bold text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+                </div>
+
+                {/* Paragraph 4 */}
+                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
+                  ACREDITAMOS QUE <span className="font-bold text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
+                </p>
               </div>
-
-              {/* Paragraph 4 */}
-              <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
-                ACREDITAMOS QUE <span className="font-bold text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
-              </p>
 
               {/* Paragraph 5 */}
               <div className="font-cheddar uppercase tracking-tight text-black space-y-1 pt-6 manifesto-p opacity-0">
@@ -1041,38 +1048,50 @@ Gostaria de solicitar proposta B2B para:
       </section>
 
       {/* ── SIMPLIFIED COMMERCIAL CATALOG SECTION ── */}
-      <section id="catalogo" className="py-24 px-6 sm:px-12 relative z-10">
+      <section id="catalogo" className="relative py-28 px-6 sm:px-12 overflow-hidden z-10">
+        {/* Fullscreen Section Background Video */}
+        <div className="absolute inset-0 z-0 select-none pointer-events-none">
+          <video 
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="auto"
+            className="w-full h-full object-cover"
+          >
+            <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
+          </video>
+          {/* Multi-layered premium contrast overlays */}
+          <div className="absolute inset-0 bg-black/75 z-10" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />
+          <div className="absolute inset-0 bg-zinc-950/40 backdrop-blur-[3px] z-10" />
+        </div>
+
         <div className="max-w-7xl mx-auto space-y-16 relative z-10">
           
-          {/* Cinematic Product Slider Showcase - Aspect 16:9 (1920x1080) on Desktop */}
-          <div className="relative rounded-[2.5rem] overflow-hidden border border-white/[0.04] bg-zinc-950/20 shadow-2xl py-12 md:py-8 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[820px] md:min-h-[780px] md:aspect-video w-full">
-            {/* Background Video (Only inside the showcase box/strip) */}
-            <video 
-              autoPlay
-              loop
-              muted
-              playsInline
-              preload="auto"
-              className="absolute inset-0 w-full h-full object-cover z-0"
-            >
-              <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
-            </video>
+          {/* Cinematic Product Slider Showcase - Dynamic Glassmorphism */}
+          <div className={`relative rounded-[2.5rem] overflow-hidden border shadow-2xl py-12 md:py-10 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[780px] w-full transition-all duration-500 ${
+            isDarkMode 
+              ? 'bg-zinc-950/35 border-white/[0.08] shadow-black/80' 
+              : 'bg-white/70 border-zinc-200/50 shadow-zinc-950/5'
+          } backdrop-blur-xl`}>
 
-            <div className="w-full relative z-10 space-y-4 md:space-y-3">
+            <div className="w-full relative z-10 space-y-5 md:space-y-4">
               
               {/* Header Content */}
-              <div className="space-y-2 md:space-y-3 max-w-4xl mx-auto">
-                <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1 rounded-full text-[#ff003c] backdrop-blur-md">
+              <div className="space-y-3 md:space-y-4 max-w-4xl mx-auto">
+                <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1.5 rounded-full text-[#ff003c] backdrop-blur-md">
                   <Package size={11} />
                   <span className="text-[8px] sm:text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
                 </div>
                 
-                <h2 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-[2.1rem] font-black uppercase text-white leading-tight">
-                  Mais do que assinar condimentos espetaculares, selamos um pacto de performance e crescimento com a sua operação.
+                <h2 className={`font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'} leading-tight tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]`}>
+                  Mais do que condimentos,<br className="hidden md:inline" />
+                  <span className="text-[#ff003c]">um pacto de performance</span> com a sua operação.
                 </h2>
                 
-                <p className="text-[11px] sm:text-xs md:text-sm text-zinc-350 max-w-2xl mx-auto font-sans-premium leading-relaxed">
-                  A Dubola nasceu para elevar o padrão da chapa à mesa: transformamos o comum em memorável para cozinhas que exigem qualidade absoluta.
+                <p className={`text-xs sm:text-sm md:text-base ${isDarkMode ? 'text-zinc-350' : 'text-zinc-700'} max-w-2xl mx-auto font-sans-premium leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.2)]`}>
+                  A Dubola nasceu para elevar o padrão da chapa à mesa. Desenvolvemos embalagens e formulações de alta performance para cozinhas profissionais que exigem qualidade absoluta e desperdício zero.
                 </p>
               </div>
 
@@ -1083,14 +1102,17 @@ Gostaria de solicitar proposta B2B para:
                     key={cat.id}
                     type="button"
                     onClick={() => setActiveCardIndex(idx)}
-                    className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-xs font-space-premium font-bold tracking-widest uppercase transition-all duration-300 border backdrop-blur-md ${
+                    className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-xs font-space-premium font-bold tracking-widest uppercase transition-all duration-300 border ${
                       activeCardIndex === idx
-                        ? 'bg-white/10 text-white'
-                        : 'bg-zinc-950/65 text-zinc-300 hover:text-white border-white/10 hover:border-white/20 hover:bg-zinc-900/80'
+                        ? 'bg-[#ff003c] text-white border-[#ff003c] shadow-[0_0_20px_rgba(255,0,60,0.45)]'
+                        : isDarkMode
+                          ? 'bg-black/55 text-zinc-300 border-white/10 hover:border-white/20 hover:text-white hover:bg-black/85'
+                          : 'bg-white/80 text-zinc-700 border-zinc-200/85 hover:border-zinc-300 hover:text-zinc-950 hover:bg-white'
                     }`}
                     style={{
+                      backgroundColor: activeCardIndex === idx ? cat.color : undefined,
                       borderColor: activeCardIndex === idx ? cat.color : undefined,
-                      boxShadow: activeCardIndex === idx ? `${cat.color}33 0px 0px 15px` : undefined
+                      boxShadow: activeCardIndex === idx ? `${cat.color}66 0px 0px 18px` : undefined
                     }}
                   >
                     {cat.title}
@@ -1172,8 +1194,8 @@ Gostaria de solicitar proposta B2B para:
                         onClick={() => !isActive && setActiveCardIndex(idx)}
                         className={`absolute transition-all duration-700 ease-out w-full max-w-[92vw] sm:max-w-3xl rounded-[2.5rem] border overflow-hidden shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 p-5 sm:p-6 md:p-8 text-left ${
                           isDarkMode 
-                            ? 'bg-zinc-950/80 border-white/[0.08] text-white shadow-black/80' 
-                            : 'bg-white/95 border-zinc-200/80 text-zinc-900 shadow-zinc-950/10'
+                            ? 'bg-zinc-950/92 border-white/[0.08] text-white shadow-black/80' 
+                            : 'bg-white/98 border-zinc-200/80 text-zinc-900 shadow-zinc-950/10'
                         } ${!isActive ? 'cursor-pointer select-none' : ''}`}
                         style={
                           isMobile 
@@ -1300,9 +1322,16 @@ Gostaria de solicitar proposta B2B para:
 
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* ── FORMATS & DISTRIBUTION INTERACTIVE MATRIX ── */}
-          <div className="pt-12 space-y-8">
+      {/* ── SECTION 2: FORMATS & DISTRIBUTION INTERACTIVE MATRIX ── */}
+      <section id="logistica" className={`relative py-28 px-6 sm:px-12 z-10 border-t ${
+        isDarkMode 
+          ? 'bg-[#09090b] border-white/[0.04]' 
+          : 'bg-[#faf7ed] border-zinc-200/60'
+      } transition-colors duration-500`}>
+        <div className="max-w-7xl mx-auto space-y-8 relative z-10">
             <div className="text-left space-y-2">
               <span className={`${isDarkMode ? 'text-zinc-400' : 'text-zinc-500'} text-[10px] font-space-premium font-black tracking-[0.3em] uppercase block`}>
                 Especificações Técnicas Operacionais
@@ -1657,10 +1686,19 @@ Gostaria de solicitar proposta B2B para:
                       ))}
                     </ul>
                   </div>
-                </div>
-              </div>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+      {/* ── SECTION 3: FALE COM A DUBOLA / CONTATO COMERCIAL ── */}
+      <section id="contato" className={`relative py-28 px-6 sm:px-12 z-10 border-t ${
+        isDarkMode 
+          ? 'bg-black border-white/[0.04]' 
+          : 'bg-white border-zinc-200/60'
+      } transition-colors duration-500`}>
+        <div className="max-w-7xl mx-auto relative z-10">
 
           {/* Lead capture form specifically for B2B proposal request */}
           <div className={`${isDarkMode ? 'glass-premium border-white/[0.04]' : 'bg-white border-zinc-200 shadow-xl'} p-6 sm:p-12 rounded-2xl sm:rounded-3xl border relative overflow-hidden text-left max-w-4xl mx-auto`} ref={formRef}>

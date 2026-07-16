@@ -303,7 +303,9 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
         ) : (
           isB2bMode ? (
             <a 
-              href="#catalogo" 
+              href="https://wa.me/5521998487779?text=Olá!%20Gostaria%20de%20falar%20com%20a%20equipe%20de%20vendas%20da%20Dubola%20Alimentos." 
+              target="_blank"
+              rel="noopener noreferrer"
               className={`text-[8px] font-space-premium font-bold tracking-widest border px-4 py-2.5 rounded-xl transition-all uppercase ${
                 isLight
                   ? 'border-[#ff003c]/40 hover:border-[#ff003c] text-[#ff003c] bg-[#ff003c]/5 hover:bg-[#ff003c]/10'
@@ -362,6 +364,21 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
               </a>
               <a href="#catalogo" onClick={() => setMobileMenuOpen(false)} className="text-zinc-400 hover:text-white py-2 border-b border-zinc-900">
                 CATÁLOGO B2B
+              </a>
+              <a href="#logistica" onClick={() => setMobileMenuOpen(false)} className="text-zinc-400 hover:text-white py-2 border-b border-zinc-900">
+                LOGÍSTICA B2B
+              </a>
+              <a href="#contato" onClick={() => setMobileMenuOpen(false)} className="text-zinc-400 hover:text-white py-2 border-b border-zinc-900">
+                FALE CONOSCO
+              </a>
+              <a 
+                href="https://wa.me/5521998487779?text=Olá!%20Gostaria%20de%20falar%20com%20a%20equipe%20de%20vendas%20da%20Dubola%20Alimentos." 
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)} 
+                className="text-[#ff003c] hover:text-white py-2 border-b border-zinc-900 flex items-center gap-1.5"
+              >
+                FALE COM VENDAS (WHATSAPP)
               </a>
             </>
           ) : (

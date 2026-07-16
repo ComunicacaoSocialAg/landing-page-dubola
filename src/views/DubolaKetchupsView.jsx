@@ -482,28 +482,32 @@ export default function DubolaKetchupsView() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left column: Manifesto text */}
             <div className="lg:col-span-6 space-y-8 select-none">
-              {/* Paragraph 1 */}
-              <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
-                NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
-              </p>
+              
+              {/* Glass container for body text */}
+              <div className="bg-black/15 backdrop-blur-md border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 shadow-xl max-w-xl">
+                {/* Paragraph 1 */}
+                <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
+                  NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
+                </p>
 
-              {/* Paragraph 2 */}
-              <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
-                FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
-              </p>
+                {/* Paragraph 2 */}
+                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
+                  FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
+                </p>
 
-              {/* Paragraph 3 */}
-              <div className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug space-y-2 manifesto-p opacity-0">
-                <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
-                <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
-                <p>ACREDITAMOS QUE <span className="font-bold text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+                {/* Paragraph 3 */}
+                <div className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug space-y-2 manifesto-p opacity-0">
+                  <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
+                  <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
+                  <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
+                  <p>ACREDITAMOS QUE <span className="font-bold text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
+                </div>
+
+                {/* Paragraph 4 */}
+                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
+                  ACREDITAMOS QUE <span className="font-bold text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
+                </p>
               </div>
-
-              {/* Paragraph 4 */}
-              <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
-                ACREDITAMOS QUE <span className="font-bold text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
-              </p>
 
               {/* Paragraph 5 */}
               <div className="font-cheddar uppercase tracking-tight text-black space-y-1 pt-6 manifesto-p opacity-0">
