@@ -1221,7 +1221,7 @@ Gostaria de solicitar proposta B2B para:
                         <div className="w-full md:w-[42%] aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-zinc-900/60 border border-white/5 relative shrink-0">
                           <img 
                             src={cat.image} 
-                            alt={cat.title} 
+                            alt={`Apresentação da ${cat.line} - ${cat.title} Dubola Alimentos`} 
                             className="w-full h-full object-cover transition-transform duration-700 hover:scale-105" 
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/25 to-transparent pointer-events-none" />

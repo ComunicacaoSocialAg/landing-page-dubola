@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://site-five-chi-79.vercel.app/sitemap.xml
