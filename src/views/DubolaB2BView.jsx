@@ -929,7 +929,7 @@ Gostaria de solicitar proposta B2B para:
           {!isMobile && (
             <div className="hero-logo-right opacity-0 absolute top-[20%] right-[8%] w-[12%] flex justify-end items-center">
               <img 
-                src="/Logo-Dubola.png" 
+                src="/Logo-Dubola.svg" 
                 alt="DUBOLA Logo" 
                 className="w-full h-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" 
               />

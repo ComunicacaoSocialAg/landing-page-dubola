@@ -300,7 +300,7 @@ export default function DubolaCommercialCatalogView() {
                 </span>
               </div>
               <img 
-                src="/Logo-Dubola.png" 
+                src="/Logo-Dubola.svg" 
                 alt="Dubola" 
                 className="h-16 sm:h-20 w-auto mb-6 object-contain filter drop-shadow-[0_4px_12px_rgba(255,0,0,0.15)]"
               />

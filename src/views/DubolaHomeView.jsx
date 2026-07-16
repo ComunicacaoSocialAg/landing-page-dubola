@@ -1501,7 +1501,7 @@ export default function DubolaHomeView() {
               <div className="relative group cursor-pointer aspect-square w-full max-w-[240px]">
                 <div className="absolute inset-0 rounded-full bg-[#ff003c]/5 group-hover:bg-[#ff003c]/15 blur-3xl transition-colors duration-500"></div>
                 <img 
-                  src="/Logo-Dubola.png" 
+                  src="/Logo-Dubola.svg" 
                   alt="Balde Profissional 5kg Dubola" 
                   className="w-full h-full object-contain relative z-10 transition-transform duration-500 group-hover:scale-105"
                   onError={(e) => {

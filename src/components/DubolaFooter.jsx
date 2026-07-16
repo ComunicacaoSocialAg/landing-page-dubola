@@ -9,7 +9,7 @@ export default function DubolaFooter() {
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 items-start mb-12">
         {/* Brand Left Column */}
         <div className="md:col-span-4 space-y-3 text-left">
-          <img src="/Logo-Dubola.png" alt="DUBOLA" className="h-10 w-auto object-contain" />
+          <img src="/Logo-Dubola.svg" alt="DUBOLA" className="h-10 w-auto object-contain" />
           <p className="text-[11px] text-zinc-650 font-sans-premium leading-relaxed max-w-xs">
             Condimentos de autor para cozinhas de excelência. Cada produto é resultado de uma obsessão com o sabor perfeito.
           </p>

@@ -161,7 +161,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
       {/* Brand Logo */}
       <Link to="/" className="flex items-center gap-3 group relative z-50">
         <img 
-          src="/Logo-Dubola.png" 
+          src="/Logo-Dubola.svg" 
           alt="DUBOLA Logo" 
           className={`h-10 sm:h-12 w-auto object-contain logo-glow transition-transform duration-500 group-hover:scale-[1.02] ${isLight ? 'brightness-[0.15]' : ''}`} 
         />
