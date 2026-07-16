@@ -148,7 +148,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
   const isLight = forceLight || location.pathname === '/claro';
   return (
     <header 
-      className={`fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-3 flex items-center justify-between border-b transition-all duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 px-6 sm:px-12 py-2 flex items-center justify-between border-b transition-all duration-300 ${
         isLight
           ? scrolled 
             ? 'bg-[#faf7ed]/95 backdrop-blur-xl border-[#eae1c0] shadow-sm' 
@@ -163,22 +163,19 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
         <img 
           src="/Logo-Dubola.svg" 
           alt="DUBOLA Logo" 
-          className={`h-10 sm:h-12 w-auto object-contain logo-glow transition-transform duration-500 group-hover:scale-[1.02] ${isLight ? 'brightness-[0.15]' : ''}`} 
+          className={`h-9 sm:h-10 w-auto object-contain logo-glow transition-transform duration-500 group-hover:scale-[1.02] ${isLight ? 'brightness-[0.15]' : ''}`} 
         />
         <span className={`hidden lg:inline-block text-[8px] font-space-premium font-bold tracking-[0.2em] border px-2 py-0.5 rounded-full uppercase ml-1 ${isLight ? 'border-[#ff003c]/40 text-[#ff003c] bg-[#ff003c]/5' : 'border-[#ff003c]/30 text-[#ff003c] bg-[#ff003c]/5'}`}>
           EST. 1998
         </span>
       </Link>
-
+ 
       <nav className={`hidden xl:flex items-center gap-6 lg:gap-8 text-[10px] font-space-premium font-bold tracking-widest ${isLight ? 'text-zinc-600' : 'text-zinc-400'}`}>
         {isB2bMode ? (
           <>
             <a href="#beneficios" className={`transition-colors ${isLight ? 'text-zinc-700 hover:text-[#ff003c]' : 'text-zinc-300 hover:text-white'}`}>DIFERENCIAIS</a>
             <a href="#catalogo" className={`transition-colors ${isLight ? 'text-zinc-700 hover:text-[#ff003c]' : 'text-zinc-300 hover:text-white'}`}>CATÁLOGO B2B</a>
             <a href="#logistica" className={`transition-colors ${isLight ? 'text-zinc-700 hover:text-[#ff003c]' : 'text-zinc-300 hover:text-white'}`}>LOGÍSTICA</a>
-            <a href="#onde-comprar" className="hover:text-[#eab308] hover:scale-[1.02] transition-all flex items-center gap-1.5 font-black uppercase text-[#eab308]">
-              <Sparkles size={11} className="animate-pulse text-[#eab308]" /> Onde Comprar (Varejo)
-            </a>
           </>
         ) : (
           <>
