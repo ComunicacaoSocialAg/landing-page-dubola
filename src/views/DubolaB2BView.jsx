@@ -1086,8 +1086,8 @@ Gostaria de solicitar proposta B2B para:
                 </div>
                 
                 <h2 className={`font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'} leading-tight tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]`}>
-                  Mais do que condimentos,<br className="hidden md:inline" />
-                  <span className="text-[#ff003c]">um pacto de performance</span> com a sua operação.
+                  Escolhemos ingredientes selecionados<br className="hidden md:inline" />
+                  que <span className="text-[#ff003c]">respeitam o consumidor</span> e valorizam cada receita.
                 </h2>
                 
                 <p className={`text-xs sm:text-sm md:text-base ${isDarkMode ? 'text-zinc-350' : 'text-zinc-700'} max-w-2xl mx-auto font-sans-premium leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.2)]`}>
