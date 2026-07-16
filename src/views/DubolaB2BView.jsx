@@ -1091,7 +1091,7 @@ Gostaria de solicitar proposta B2B para:
                 </h2>
                 
                 <p className={`text-xs sm:text-sm md:text-base ${isDarkMode ? 'text-zinc-350' : 'text-zinc-700'} max-w-2xl mx-auto font-sans-premium leading-relaxed drop-shadow-[0_1px_4px_rgba(0,0,0,0.2)]`}>
-                  A Dubola nasceu para elevar o padrão da chapa à mesa. Desenvolvemos embalagens e formulações de alta performance para cozinhas profissionais que exigem qualidade absoluta e desperdício zero.
+                  Molhos criados para valorizar o sabor de cada receita.
                 </p>
               </div>
 
