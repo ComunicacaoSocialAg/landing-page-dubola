@@ -834,7 +834,7 @@ Gostaria de solicitar proposta B2B para:
         <div className={`
           absolute inset-0 z-20 flex w-full h-full
           ${isMobile 
-            ? 'flex-col justify-end px-6 pb-12 pt-24' 
+            ? 'flex-col justify-between px-6 pb-12 pt-24' 
             : 'relative'
           }
         `}>
@@ -850,7 +850,7 @@ Gostaria de solicitar proposta B2B para:
             </div>
           ) : (
             /* On mobile, place it at the top */
-            <div className="hero-handwriting opacity-0 absolute top-28 left-6">
+            <div className="hero-handwriting opacity-0 relative mt-4 select-none self-start">
               <img 
                 src="/como-deve-ser.png" 
                 alt="Como deve ser." 
@@ -903,17 +903,17 @@ Gostaria de solicitar proposta B2B para:
             </p>
 
             {/* CTAs */}
-            <div className="hero-btns opacity-0 flex gap-3 w-full sm:w-auto">
+            <div className="hero-btns opacity-0 flex flex-col sm:flex-row gap-3 w-full sm:w-auto">
               <a
                 href="#catalogo"
-                className="flex items-center justify-center gap-2 rounded-2xl bg-[#a01e16] hover:bg-[#861710] text-white font-space-premium font-bold uppercase tracking-widest transition-all shadow-[0_0_28px_rgba(160,30,22,0.4)]"
+                className="flex items-center justify-center gap-2 rounded-2xl bg-[#a01e16] hover:bg-[#861710] text-white font-space-premium font-bold uppercase tracking-widest transition-all shadow-[0_0_28px_rgba(160,30,22,0.4)] w-full sm:w-auto"
                 style={{ padding: isMobile ? '14px 20px' : '14px 28px', fontSize: '0.65rem' }}
               >
                 <ShoppingBag size={13} /> Ver Catálogo Completo
               </a>
               <a
                 href="#beneficios"
-                className={`flex items-center justify-center gap-2 rounded-2xl border font-space-premium font-bold uppercase tracking-widest transition-all ${
+                className={`flex items-center justify-center gap-2 rounded-2xl border font-space-premium font-bold uppercase tracking-widest transition-all w-full sm:w-auto ${
                   isDarkMode 
                     ? 'border-white/15 bg-white/5 text-zinc-200 hover:bg-white/10 hover:border-white/25' 
                     : 'border-zinc-300 bg-zinc-100 text-zinc-800 hover:bg-zinc-200 hover:border-zinc-400'
@@ -972,7 +972,7 @@ Gostaria de solicitar proposta B2B para:
             <div className="lg:col-span-7 relative inline-flex items-center manifesto-header opacity-0 w-full">
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none relative w-full">
                 O JEITO DUBOLA
-                <span className="absolute top-[-30%] left-[85%] w-[38%] lg:w-[42%] z-20 manifesto-cursive opacity-0 block">
+                <span className="absolute top-[-40%] lg:top-[-30%] left-[60%] lg:left-[85%] w-[45%] lg:w-[42%] z-20 manifesto-cursive opacity-0 block">
                   <img 
                     src="/como-deve-ser-branco.png" 
                     alt="Como deve ser" 
@@ -1015,7 +1015,7 @@ Gostaria de solicitar proposta B2B para:
                 <div className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug space-y-2 manifesto-p opacity-0">
                   <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
                   <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
-                  <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
+                  <p className="pl-8 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
                   <p>ACREDITAMOS QUE <span className="font-bold text-white">AUTENTICIDADE</span> VALE MAIS DO QUE SEGUIR TENDÊNCIAS.</p>
                 </div>
 
@@ -1026,7 +1026,7 @@ Gostaria de solicitar proposta B2B para:
               </div>
 
               {/* Paragraph 5 */}
-              <div className="font-cheddar uppercase tracking-tight text-black space-y-1 pt-6 manifesto-p opacity-0">
+              <div className="font-cheddar uppercase tracking-tight text-[#faf7ed] space-y-1 pt-6 manifesto-p opacity-0">
                 <p className="text-xl sm:text-2xl lg:text-[1.75rem] leading-none">E ACREDITAMOS QUE UM BOM MOLHO</p>
                 <p className="text-2xl sm:text-3xl lg:text-[2.1rem] leading-none">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
               </div>
@@ -1070,7 +1070,7 @@ Gostaria de solicitar proposta B2B para:
         <div className="max-w-7xl mx-auto space-y-16 relative z-10">
           
           {/* Cinematic Product Slider Showcase - Dynamic Glassmorphism */}
-          <div className={`relative rounded-[2.5rem] overflow-hidden border shadow-2xl py-12 md:py-10 px-6 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[780px] w-full transition-all duration-500 ${
+          <div className={`relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden border shadow-2xl py-10 md:py-10 px-4 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[780px] w-full transition-all duration-500 ${
             isDarkMode 
               ? 'bg-zinc-950/35 border-white/[0.08] shadow-black/80' 
               : 'bg-white/70 border-zinc-200/50 shadow-zinc-950/5'
@@ -1142,7 +1142,7 @@ Gostaria de solicitar proposta B2B para:
 
                 {/* Slider Viewport with Perspective */}
                 <div 
-                  className="w-full max-w-4xl min-h-[450px] md:min-h-[420px] relative overflow-visible flex items-center justify-center"
+                  className="w-full max-w-4xl min-h-[580px] sm:min-h-[500px] md:min-h-[420px] relative overflow-visible flex items-center justify-center"
                   style={{ perspective: '1200px' }}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
@@ -1192,7 +1192,7 @@ Gostaria de solicitar proposta B2B para:
                       <div
                         key={cat.id}
                         onClick={() => !isActive && setActiveCardIndex(idx)}
-                        className={`absolute transition-all duration-700 ease-out w-full max-w-[92vw] sm:max-w-3xl rounded-[2.5rem] border overflow-hidden shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 p-5 sm:p-6 md:p-8 text-left ${
+                        className={`absolute transition-all duration-700 ease-out w-full max-w-[92vw] sm:max-w-3xl rounded-[1.75rem] sm:rounded-[2.5rem] border overflow-hidden shadow-2xl flex flex-col md:flex-row gap-4 md:gap-6 p-4.5 sm:p-6 md:p-8 text-left ${
                           isDarkMode 
                             ? 'bg-zinc-950/92 border-white/[0.08] text-white shadow-black/80' 
                             : 'bg-white/98 border-zinc-200/80 text-zinc-900 shadow-zinc-950/10'
@@ -1200,7 +1200,7 @@ Gostaria de solicitar proposta B2B para:
                         style={
                           isMobile 
                             ? {
-                                transform: `translateX(${(idx - activeCardIndex) * 105}%) scale(${isActive ? 1 : 0.93})`,
+                                transform: `translateX(${(idx - activeCardIndex) * 96}%) scale(${isActive ? 1 : 0.92})`,
                                 opacity: isActive ? 1 : 0.4,
                                 zIndex: isActive ? 30 : 10,
                                 pointerEvents: isActive ? 'auto' : 'none',
@@ -1218,7 +1218,7 @@ Gostaria de solicitar proposta B2B para:
                         }
                       >
                         {/* Left Column - Product Image */}
-                        <div className="w-full md:w-[42%] aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-zinc-900/60 border border-white/5 relative shrink-0">
+                        <div className="w-full md:w-[42%] aspect-[16/10] sm:aspect-[4/3] md:aspect-square rounded-2xl overflow-hidden bg-zinc-900/60 border border-white/5 relative shrink-0">
                           <img 
                             src={cat.image} 
                             alt={`Apresentação da ${cat.line} - ${cat.title} Dubola Alimentos`} 
@@ -1375,7 +1375,16 @@ Gostaria de solicitar proposta B2B para:
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Left Column: Interactive Table */}
-              <div className="lg:col-span-7 flex flex-col items-start text-left">
+              <div className="lg:col-span-7 flex flex-col items-start text-left w-full">
+                {/* Mobile-only Swipe indicator */}
+                <div className={`lg:hidden text-center text-[9px] font-space-premium font-black uppercase tracking-[0.15em] py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 mb-3 w-full border ${
+                  isDarkMode 
+                    ? 'bg-white/5 text-zinc-400 border-white/[0.04]' 
+                    : 'bg-zinc-100 text-zinc-550 border-zinc-200/60'
+                }`}>
+                  <span className="animate-pulse">← Deslize a tabela para ver todos os sabores →</span>
+                </div>
+                
                 <div className={`w-full ${isDarkMode ? 'bg-zinc-950/60 border-white/[0.04]' : 'bg-white/75 border-zinc-200 shadow-sm'} border rounded-2xl overflow-hidden backdrop-blur-md`}>
                   <div className="overflow-x-auto">
                     <table className="w-full text-left border-collapse min-w-[500px]">
