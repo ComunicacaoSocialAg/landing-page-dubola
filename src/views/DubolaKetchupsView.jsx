@@ -456,11 +456,11 @@ export default function DubolaKetchupsView() {
             <div className="lg:col-span-7 relative inline-flex items-center manifesto-header opacity-0 w-full">
               <h2 className="font-cheddar text-7xl sm:text-8xl md:text-9xl tracking-tight leading-none text-white uppercase select-none relative w-full">
                 O JEITO DUBOLA
-                <span className="absolute top-[-30%] left-[80%] w-[38%] lg:w-[42%] z-20 manifesto-cursive opacity-0 block">
+                <span className="absolute top-[-30%] left-[85%] w-[38%] lg:w-[42%] z-20 manifesto-cursive opacity-0 block">
                   <img 
                     src="/como-deve-ser-branco.png" 
                     alt="Como deve ser" 
-                    className="w-full h-auto object-contain transform -rotate-6 select-none"
+                    className="w-full h-auto object-contain transform -rotate-3 select-none"
                     style={{
                       filter: 'drop-shadow(0px 3px 6px rgba(0,0,0,0.4))'
                     }}
@@ -481,19 +481,19 @@ export default function DubolaKetchupsView() {
           {/* Grid container */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left column: Manifesto text */}
-            <div className="lg:col-span-6 space-y-10 select-none">
+            <div className="lg:col-span-6 space-y-8 select-none">
               {/* Paragraph 1 */}
-              <p className="font-display uppercase tracking-wider text-3xl sm:text-4xl lg:text-[2.6rem] text-white manifesto-p opacity-0 leading-none">
+              <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
                 NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
               </p>
 
               {/* Paragraph 2 */}
-              <p className="font-display uppercase tracking-wider text-xl sm:text-2xl lg:text-[1.65rem] text-white leading-snug max-w-xl manifesto-p opacity-0">
+              <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
                 FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
               </p>
 
               {/* Paragraph 3 */}
-              <div className="font-display uppercase tracking-wider text-xl sm:text-2xl lg:text-[1.65rem] text-white leading-snug space-y-2 manifesto-p opacity-0">
+              <div className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug space-y-2 manifesto-p opacity-0">
                 <p>ACREDITAMOS QUE <span className="font-bold text-white">SABOR</span> NÃO ACEITA <span className="font-bold text-white">ATALHOS</span>.</p>
                 <p>ACREDITAMOS QUE <span className="font-bold text-white">QUALIDADE</span> NÃO É UM DIFERENCIAL.</p>
                 <p className="pl-12 md:pl-28">É UMA <span className="font-bold text-white">OBRIGAÇÃO</span>.</p>
@@ -501,14 +501,14 @@ export default function DubolaKetchupsView() {
               </div>
 
               {/* Paragraph 4 */}
-              <p className="font-display uppercase tracking-wider text-xl sm:text-2xl lg:text-[1.65rem] text-white leading-snug manifesto-p opacity-0">
+              <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
                 ACREDITAMOS QUE <span className="font-bold text-white">CONFIANÇA</span> É CONQUISTADA TODOS OS DIAS.
               </p>
 
               {/* Paragraph 5 */}
               <div className="font-cheddar uppercase tracking-tight text-black space-y-1 pt-6 manifesto-p opacity-0">
-                <p className="text-2xl sm:text-3xl lg:text-[2rem] leading-none">E ACREDITAMOS QUE UM BOM MOLHO</p>
-                <p className="text-3xl sm:text-4xl lg:text-[2.4rem] leading-none">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
+                <p className="text-xl sm:text-2xl lg:text-[1.75rem] leading-none">E ACREDITAMOS QUE UM BOM MOLHO</p>
+                <p className="text-2xl sm:text-3xl lg:text-[2.1rem] leading-none">É AQUELE QUE VOCÊ TERÁ ORGULHO DE SERVIR.</p>
               </div>
             </div>
 
