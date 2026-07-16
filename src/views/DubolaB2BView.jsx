@@ -997,17 +997,17 @@ Gostaria de solicitar proposta B2B para:
           {/* Grid container */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left column: Manifesto text */}
-            <div className="lg:col-span-6 space-y-8 select-none">
+            <div className="lg:col-span-5 space-y-8 select-none">
               
               {/* Glass container for body text */}
-              <div className="bg-black/15 backdrop-blur-md border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 shadow-xl max-w-xl">
+              <div className="bg-black/15 backdrop-blur-md border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 shadow-xl max-w-lg">
                 {/* Paragraph 1 */}
                 <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
                   NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
                 </p>
 
                 {/* Paragraph 2 */}
-                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
+                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
                   FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
                 </p>
 
@@ -1033,7 +1033,7 @@ Gostaria de solicitar proposta B2B para:
             </div>
 
             {/* Right column: Image visible ONLY on mobile/tablet */}
-            <div className="lg:col-span-6 lg:hidden w-full flex justify-center mt-12 manifesto-bottles opacity-0">
+            <div className="lg:col-span-7 lg:hidden w-full flex justify-center mt-12 manifesto-bottles opacity-0">
               <img 
                 src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
                 alt="Ketchups Dubola" 
@@ -1042,7 +1042,7 @@ Gostaria de solicitar proposta B2B para:
             </div>
             
             {/* Empty column on desktop to let the background bottles shine */}
-            <div className="lg:col-span-6 hidden lg:block" />
+            <div className="lg:col-span-7 hidden lg:block" />
           </div>
         </div>
       </section>
@@ -1698,7 +1698,19 @@ Gostaria de solicitar proposta B2B para:
           ? 'bg-black border-white/[0.04]' 
           : 'bg-white border-zinc-200/60'
       } transition-colors duration-500`}>
-        <div className="max-w-7xl mx-auto relative z-10">
+        <div className="max-w-7xl mx-auto relative z-10 space-y-12">
+          
+          {/* Section Header CTA */}
+          <div className="text-center space-y-4 max-w-3xl mx-auto">
+            <h2 className="font-cheddar text-5xl sm:text-7xl text-[#ff003c] tracking-tight uppercase leading-none select-none">
+              Fale com a Dubola
+            </h2>
+            <p className={`font-display text-2xl sm:text-4.5xl uppercase tracking-wider ${
+              isDarkMode ? 'text-white' : 'text-zinc-800'
+            } leading-tight`}>
+              Leve o Sabor de Autor e a Maior Rentabilidade para seu Negócio
+            </p>
+          </div>
 
           {/* Lead capture form specifically for B2B proposal request */}
           <div className={`${isDarkMode ? 'glass-premium border-white/[0.04]' : 'bg-white border-zinc-200 shadow-xl'} p-6 sm:p-12 rounded-2xl sm:rounded-3xl border relative overflow-hidden text-left max-w-4xl mx-auto`} ref={formRef}>
@@ -1707,10 +1719,9 @@ Gostaria de solicitar proposta B2B para:
             {!commercialSubmitted ? (
               <form onSubmit={handleCommercialSubmit} className="space-y-6">
                 <div className="space-y-2">
-                  <h3 className={`font-space-premium font-black text-lg uppercase ${isDarkMode ? 'text-white' : 'text-zinc-800'} tracking-widest`}>Para mais informações</h3>
-                  <p className={`text-xs ${isDarkMode ? 'text-zinc-500' : 'text-zinc-500'} font-sans-premium leading-relaxed`}>
-                    Preencha os dados abaixo e logo entraremos em contato
-                  </p>
+                  <h3 className={`font-space-premium font-black text-xs uppercase ${isDarkMode ? 'text-zinc-400' : 'text-zinc-550'} tracking-widest`}>
+                    Solicitar Proposta Comercial
+                  </h3>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

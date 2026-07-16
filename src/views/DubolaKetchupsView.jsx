@@ -481,17 +481,17 @@ export default function DubolaKetchupsView() {
           {/* Grid container */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             {/* Left column: Manifesto text */}
-            <div className="lg:col-span-6 space-y-8 select-none">
+            <div className="lg:col-span-5 space-y-8 select-none">
               
               {/* Glass container for body text */}
-              <div className="bg-black/15 backdrop-blur-md border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 shadow-xl max-w-xl">
+              <div className="bg-black/15 backdrop-blur-md border border-white/10 rounded-[2rem] p-6 sm:p-8 md:p-10 space-y-6 sm:space-y-8 shadow-xl max-w-lg">
                 {/* Paragraph 1 */}
                 <p className="font-display uppercase tracking-wider text-2xl sm:text-3xl lg:text-[2.1rem] text-white manifesto-p opacity-0 leading-none">
                   NÃO FAZEMOS MOLHOS APENAS PARA VENDER.
                 </p>
 
                 {/* Paragraph 2 */}
-                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug max-w-xl manifesto-p opacity-0">
+                <p className="font-display uppercase tracking-wider text-base sm:text-lg lg:text-[1.25rem] text-white/90 leading-snug manifesto-p opacity-0">
                   FAZEMOS <span className="font-bold text-white">PRODUTOS AUTÊNTICOS</span> QUE TEMOS <span className="font-bold text-white">ORGULHO</span> DE COLOCAR NA MESA DA NOSSA PRÓPRIA FAMÍLIA.
                 </p>
 
@@ -517,7 +517,7 @@ export default function DubolaKetchupsView() {
             </div>
 
             {/* Right column: Image visible ONLY on mobile/tablet */}
-            <div className="lg:col-span-6 lg:hidden w-full flex justify-center mt-12 manifesto-bottles opacity-0">
+            <div className="lg:col-span-7 lg:hidden w-full flex justify-center mt-12 manifesto-bottles opacity-0">
               <img 
                 src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
                 alt="Ketchups Dubola" 
@@ -526,7 +526,7 @@ export default function DubolaKetchupsView() {
             </div>
             
             {/* Empty column on desktop to let the background bottles shine */}
-            <div className="lg:col-span-6 hidden lg:block" />
+            <div className="lg:col-span-7 hidden lg:block" />
           </div>
         </div>
       </section>
