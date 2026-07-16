@@ -1714,11 +1714,6 @@ Gostaria de solicitar proposta B2B para:
             <h2 className="font-cheddar text-5xl sm:text-7xl text-[#ff003c] tracking-tight uppercase leading-none select-none">
               Fale com a Dubola
             </h2>
-            <p className={`font-display text-2xl sm:text-4.5xl uppercase tracking-wider ${
-              isDarkMode ? 'text-white' : 'text-zinc-800'
-            } leading-tight`}>
-              Leve o Sabor de Autor e a Maior Rentabilidade para seu Negócio
-            </p>
           </div>
 
           {/* Lead capture form specifically for B2B proposal request */}
