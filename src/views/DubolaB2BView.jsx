@@ -207,7 +207,10 @@ export default function DubolaB2BView() {
   };
   const [activeCategoryTab, setActiveCategoryTab] = useState('ketchups');
   const [activeCardIndex, setActiveCardIndex] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+  // Lazy init evita o "flash" de layout desktop antes do primeiro useEffect rodar
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== 'undefined' ? window.innerWidth < 768 : false
+  );
 
   // Touch coordinates for mobile swipe gestures
   const touchStartX = useRef(0);
@@ -740,6 +743,15 @@ Gostaria de solicitar proposta B2B para:
           color: rgba(0, 0, 0, 0.5);
           margin-bottom: 2px;
         }
+        @media (max-width: 767px) {
+          .form-label {
+            font-size: 10px;
+          }
+          .dark-theme .form-input-wrap,
+          .light-theme .form-input-wrap {
+            padding: 10px 16px;
+          }
+        }
         /* Custom overrides for grey to sand/cream transition (f7f0d5) */
         .light-theme .hover\:bg-zinc-100\/50:hover {
           background-color: rgba(247, 240, 213, 0.45) !important;
@@ -839,16 +851,8 @@ Gostaria de solicitar proposta B2B para:
           }
         `}>
           
-          {/* COLUMN 1: LEFT AREA (Handwriting logo "Como deve ser.") */}
-          {!isMobile ? (
-            <div className="hero-handwriting opacity-0 absolute top-[8%] left-[20%] w-[18%] select-none">
-              <img 
-                src="/como-deve-ser.png" 
-                alt="Como deve ser." 
-                className="w-full h-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" 
-              />
-            </div>
-          ) : (
+          {/* COLUMN 1: LEFT AREA (Handwriting logo "Como deve ser." only on mobile now) */}
+          {isMobile && (
             /* On mobile, place it at the top */
             <div className="hero-handwriting opacity-0 relative mt-4 select-none self-start">
               <img 
@@ -874,7 +878,7 @@ Gostaria de solicitar proposta B2B para:
                 : 'bg-white/70 border-zinc-200 text-zinc-700'
             }`}>
               <Sparkles size={11} className="text-[#a01e16] animate-pulse" />
-              <span className="text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">Área Exclusiva B2B</span>
+              <span className="text-[11px] font-space-premium font-bold tracking-[0.25em] uppercase">Área Exclusiva B2B</span>
             </div>
 
             {/* Title */}
@@ -925,14 +929,21 @@ Gostaria de solicitar proposta B2B para:
             </div>
           </div>
 
-          {/* COLUMN 3: RIGHT AREA (Dubola Logo) */}
+          {/* COLUMN 3: RIGHT AREA (Dubola Logo + Slogan) */}
           {!isMobile && (
-            <div className="hero-logo-right opacity-0 absolute top-[20%] right-[8%] w-[12%] flex justify-end items-center">
+            <div className="hero-logo-right opacity-0 absolute top-[20%] right-[8%] w-[12%] flex flex-col justify-start items-center gap-4 select-none">
               <img 
                 src="/Logo-Dubola.svg" 
                 alt="DUBOLA Logo" 
                 className="w-full h-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" 
               />
+              <div className="hero-handwriting opacity-0 w-[85%] mt-1">
+                <img 
+                  src="/como-deve-ser-branco.png" 
+                  alt="Como deve ser." 
+                  className="w-full h-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] transform -rotate-3" 
+                />
+              </div>
             </div>
           )}
         </div>
@@ -951,19 +962,16 @@ Gostaria de solicitar proposta B2B para:
         ref={manifestoRef}
         className="relative w-full overflow-hidden bg-[#62070e] py-24 lg:py-32 px-6 flex items-center z-10 border-t border-white/[0.02]"
       >
-        {/* Background image for desktop (lg) */}
-        <div className="absolute inset-0 hidden lg:block z-0">
+        {/* Background image covering both desktop and mobile */}
+        <div className="absolute inset-0 z-0">
           <img 
             src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
-            alt="" 
-            className="w-full h-full object-cover object-right pointer-events-none select-none"
+            alt="Fundo Manifesto Dubola" 
+            className="w-full h-full object-cover object-[80%_center] sm:object-right lg:object-right pointer-events-none select-none"
           />
-          {/* Subtle overlay to ensure text readability */}
-          <div className="absolute inset-0 bg-black/5" />
+          {/* Subtle gradient overlay to ensure text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/60 lg:via-black/20 to-black/25 lg:to-transparent" />
         </div>
-
-        {/* Background gradient for mobile */}
-        <div className="absolute inset-0 lg:hidden bg-gradient-to-b from-[#62070e] via-[#760811] to-[#b6192c] pointer-events-none select-none" />
 
         <div className="relative z-10 max-w-7xl mx-auto w-full">
           {/* Header of Section */}
@@ -1032,35 +1040,28 @@ Gostaria de solicitar proposta B2B para:
               </div>
             </div>
 
-            {/* Right column: Image visible ONLY on mobile/tablet */}
-            <div className="lg:col-span-7 lg:hidden w-full flex justify-center mt-12 manifesto-bottles opacity-0">
-              <img 
-                src="/ketchup/trio-ketchups-sem-acucar-splash.png" 
-                alt="Ketchups Dubola" 
-                className="w-full max-w-lg object-contain drop-shadow-2xl"
-              />
-            </div>
-            
-            {/* Empty column on desktop to let the background bottles shine */}
-            <div className="lg:col-span-7 hidden lg:block" />
+            {/* Right column: Empty to let the background bottles shine */}
+            <div className="lg:col-span-7" />
           </div>
         </div>
       </section>
 
       {/* ── SIMPLIFIED COMMERCIAL CATALOG SECTION ── */}
-      <section id="catalogo" className="relative py-28 px-6 sm:px-12 overflow-hidden z-10">
-        {/* Fullscreen Section Background Video */}
-        <div className="absolute inset-0 z-0 select-none pointer-events-none">
-          <video 
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-          >
-            <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
-          </video>
+      <section id="catalogo" className="relative py-16 sm:py-20 md:py-28 px-6 sm:px-12 overflow-hidden z-10">
+        {/* Fullscreen Section Background Video — apenas desktop (economiza dados/GPU no mobile) */}
+        <div className="absolute inset-0 z-0 select-none pointer-events-none bg-zinc-950">
+          {!isMobile && (
+            <video
+              autoPlay
+              loop
+              muted
+              playsInline
+              preload="auto"
+              className="w-full h-full object-cover"
+            >
+              <source src="/video-banner-bbk-dubola.mp4" type="video/mp4" />
+            </video>
+          )}
           {/* Multi-layered premium contrast overlays */}
           <div className="absolute inset-0 bg-black/75 z-10" />
           <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black z-10" />
@@ -1070,7 +1071,7 @@ Gostaria de solicitar proposta B2B para:
         <div className="max-w-7xl mx-auto space-y-16 relative z-10">
           
           {/* Cinematic Product Slider Showcase - Dynamic Glassmorphism */}
-          <div className={`relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden border shadow-2xl py-10 md:py-10 px-4 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[780px] w-full transition-all duration-500 ${
+          <div className={`relative rounded-[1.75rem] sm:rounded-[2.5rem] overflow-hidden border shadow-2xl py-8 sm:py-10 md:py-10 px-4 sm:px-12 md:px-16 flex flex-col items-center justify-center text-center min-h-[640px] sm:min-h-[780px] w-full transition-all duration-500 ${
             isDarkMode 
               ? 'bg-zinc-950/35 border-white/[0.08] shadow-black/80' 
               : 'bg-white/70 border-zinc-200/50 shadow-zinc-950/5'
@@ -1082,7 +1083,7 @@ Gostaria de solicitar proposta B2B para:
               <div className="space-y-3 md:space-y-4 max-w-4xl mx-auto">
                 <div className="inline-flex items-center gap-2 bg-[#ff003c]/15 border border-[#ff003c]/35 px-4 py-1.5 rounded-full text-[#ff003c] backdrop-blur-md">
                   <Package size={11} />
-                  <span className="text-[8px] sm:text-[9px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
+                  <span className="text-[10px] sm:text-[11px] font-space-premium font-bold tracking-[0.25em] uppercase">PRODUTOS & FORMATOS B2B</span>
                 </div>
                 
                 <h2 className={`font-display text-2xl sm:text-3xl md:text-4xl lg:text-[2.6rem] font-black uppercase ${isDarkMode ? 'text-white' : 'text-zinc-900'} leading-tight tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.3)]`}>
@@ -1102,7 +1103,7 @@ Gostaria de solicitar proposta B2B para:
                     key={cat.id}
                     type="button"
                     onClick={() => setActiveCardIndex(idx)}
-                    className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[9px] sm:text-xs font-space-premium font-bold tracking-widest uppercase transition-all duration-300 border ${
+                    className={`px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-space-premium font-bold tracking-widest uppercase transition-all duration-300 border ${
                       activeCardIndex === idx
                         ? 'bg-[#ff003c] text-white border-[#ff003c] shadow-[0_0_20px_rgba(255,0,60,0.45)]'
                         : isDarkMode
@@ -1118,6 +1119,13 @@ Gostaria de solicitar proposta B2B para:
                     {cat.title}
                   </button>
                 ))}
+              </div>
+
+              {/* Swipe hint — mobile only, já que as setas de navegação ficam ocultas nesse breakpoint */}
+              <div className="flex lg:hidden items-center justify-center gap-1.5 text-[10px] font-space-premium font-bold tracking-widest uppercase text-zinc-400">
+                <ChevronLeft size={12} className="opacity-60" />
+                Arraste para ver mais
+                <ChevronRight size={12} className="opacity-60" />
               </div>
 
               {/* Slider Container */}
@@ -1142,7 +1150,7 @@ Gostaria de solicitar proposta B2B para:
 
                 {/* Slider Viewport with Perspective */}
                 <div 
-                  className="w-full max-w-4xl min-h-[580px] sm:min-h-[500px] md:min-h-[420px] relative overflow-visible flex items-center justify-center"
+                  className="w-full max-w-4xl min-h-[480px] sm:min-h-[500px] md:min-h-[420px] relative overflow-visible flex items-center justify-center"
                   style={{ perspective: '1200px' }}
                   onTouchStart={handleTouchStart}
                   onTouchMove={handleTouchMove}
@@ -1254,7 +1262,7 @@ Gostaria de solicitar proposta B2B para:
 
                           <div className={`pt-4 border-t ${isDarkMode ? 'border-zinc-900/80' : 'border-zinc-200/80'} space-y-3`}>
                             <div>
-                              <p className={`text-[9px] sm:text-[10px] font-space-premium font-bold uppercase tracking-widest mb-2.5 ${isDarkMode ? 'text-zinc-550' : 'text-zinc-500'}`}>
+                              <p className={`text-[11px] sm:text-[10px] font-space-premium font-bold uppercase tracking-widest mb-2.5 ${isDarkMode ? 'text-zinc-550' : 'text-zinc-500'}`}>
                                 Formatos Disponíveis
                               </p>
                               <div className="flex flex-wrap gap-1.5">
@@ -1275,10 +1283,10 @@ Gostaria de solicitar proposta B2B para:
 
                             {cat.extra && (
                               <div className="flex items-start gap-1.5 mt-2">
-                                <span className="text-[8px] sm:text-[9px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2 py-0.5 rounded border border-[#ff003c]/15 shrink-0 mt-0.5">
+                                <span className="text-[10px] sm:text-[11px] font-space-premium font-bold bg-[#ff003c]/10 text-[#ff003c] px-2 py-0.5 rounded border border-[#ff003c]/15 shrink-0 mt-0.5">
                                   Pote de Vidro *
                                 </span>
-                                <span className={`text-[9px] sm:text-[10px] font-sans-premium leading-snug ${isDarkMode ? 'text-zinc-550' : 'text-zinc-400'}`}>
+                                <span className={`text-[11px] sm:text-[10px] font-sans-premium leading-snug ${isDarkMode ? 'text-zinc-550' : 'text-zinc-400'}`}>
                                   Disponível apenas para Maionese Tradicional
                                 </span>
                               </div>
@@ -1313,7 +1321,7 @@ Gostaria de solicitar proposta B2B para:
 
               {/* Bottom Info Banner */}
               <div className="pt-6 space-y-2 border-t border-white/10 w-full max-w-xl mx-auto text-center md:hidden">
-                <span className="text-[8px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">EXCELÊNCIA EM TODOS OS DETALHES</span>
+                <span className="text-[10px] font-space-premium font-bold tracking-[0.25em] text-[#ff003c] uppercase">EXCELÊNCIA EM TODOS OS DETALHES</span>
                 <h3 className="font-display text-sm sm:text-base font-bold uppercase text-white/90">A Linha Completa Dubola</h3>
                 <p className="text-[10px] sm:text-xs text-zinc-450 font-sans-premium max-w-md mx-auto leading-relaxed">
                   Nossos produtos unem sabores autorais e ingredientes 100% selecionados a uma engenharia de embalagens voltada para rendimento, facilidade de uso e conservação de sabor.
@@ -1326,7 +1334,7 @@ Gostaria de solicitar proposta B2B para:
       </section>
 
       {/* ── SECTION 2: FORMATS & DISTRIBUTION INTERACTIVE MATRIX ── */}
-      <section id="logistica" className={`relative py-28 px-6 sm:px-12 z-10 border-t ${
+      <section id="logistica" className={`relative py-16 sm:py-20 md:py-28 px-6 sm:px-12 z-10 border-t ${
         isDarkMode 
           ? 'bg-[#09090b] border-white/[0.04]' 
           : 'bg-[#faf7ed] border-zinc-200/60'
@@ -1359,7 +1367,7 @@ Gostaria de solicitar proposta B2B para:
                       setSelectedFormat('bisnaga');
                     }
                   }}
-                  className={`px-4 py-2.5 text-[9px] font-space-premium font-bold tracking-widest uppercase border transition-all duration-200 rounded-lg ${
+                  className={`px-4 py-2.5 text-[11px] font-space-premium font-bold tracking-widest uppercase border transition-all duration-200 rounded-lg ${
                     activeCategoryTab === tab.id
                       ? 'border-[#ff003c]/40 bg-[#ff003c]/10 text-[#ff003c]'
                       : isDarkMode
@@ -1377,7 +1385,7 @@ Gostaria de solicitar proposta B2B para:
               {/* Left Column: Interactive Table */}
               <div className="lg:col-span-7 flex flex-col items-start text-left w-full">
                 {/* Mobile-only Swipe indicator */}
-                <div className={`lg:hidden text-center text-[9px] font-space-premium font-black uppercase tracking-[0.15em] py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 mb-3 w-full border ${
+                <div className={`lg:hidden text-center text-[11px] font-space-premium font-black uppercase tracking-[0.15em] py-2.5 px-4 rounded-xl flex items-center justify-center gap-1.5 mb-3 w-full border ${
                   isDarkMode 
                     ? 'bg-white/5 text-zinc-400 border-white/[0.04]' 
                     : 'bg-zinc-100 text-zinc-550 border-zinc-200/60'
@@ -1658,7 +1666,7 @@ Gostaria de solicitar proposta B2B para:
                   <div className="absolute top-0 right-0 w-24 h-24 bg-[#ff003c]/10 rounded-full blur-2xl pointer-events-none" />
                   
                   <div>
-                    <span className="text-[9px] font-space-premium font-black tracking-widest text-[#ff003c] uppercase block mb-2">
+                    <span className="text-[11px] font-space-premium font-black tracking-widest text-[#ff003c] uppercase block mb-2">
                       Especificação Logística
                     </span>
                     
@@ -1685,7 +1693,7 @@ Gostaria de solicitar proposta B2B para:
                   </div>
 
                   <div className={`${isDarkMode ? 'bg-white/5 border-white/10' : 'bg-zinc-50 border-zinc-200'} border rounded-xl p-4 mt-auto`}>
-                    <h4 className={`text-[9px] font-space-premium tracking-wider ${isDarkMode ? 'text-yellow-400' : 'text-amber-600'} uppercase mb-2 font-black`}>Vantagens Food Service</h4>
+                    <h4 className={`text-[11px] font-space-premium tracking-wider ${isDarkMode ? 'text-yellow-400' : 'text-amber-600'} uppercase mb-2 font-black`}>Vantagens Food Service</h4>
                     <ul className="space-y-1.5">
                       {(B2B_LOGISTICS_SPECS[selectedFormat]?.highlights || B2B_LOGISTICS_SPECS['bisnaga'].highlights).map((h, i) => (
                         <li key={i} className={`text-[10px] ${isDarkMode ? 'text-zinc-300' : 'text-zinc-700'} flex items-center gap-2 font-sans-premium`}>
@@ -1702,7 +1710,7 @@ Gostaria de solicitar proposta B2B para:
     </section>
 
       {/* ── SECTION 3: FALE COM A DUBOLA / CONTATO COMERCIAL ── */}
-      <section id="contato" className={`relative py-28 px-6 sm:px-12 z-10 border-t ${
+      <section id="contato" className={`relative py-16 sm:py-20 md:py-28 px-6 sm:px-12 z-10 border-t ${
         isDarkMode 
           ? 'bg-black border-white/[0.04]' 
           : 'bg-white border-zinc-200/60'
@@ -1935,7 +1943,7 @@ Gostaria de solicitar proposta B2B para:
 
                 <button
                   onClick={() => setCommercialSubmitted(false)}
-                  className="text-[9px] font-space-premium font-bold text-[#ff003c] uppercase hover:underline tracking-widest"
+                  className="text-[11px] font-space-premium font-bold text-[#ff003c] uppercase hover:underline tracking-widest"
                 >
                   Enviar outra solicitação
                 </button>

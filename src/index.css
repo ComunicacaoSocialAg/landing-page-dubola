@@ -43,6 +43,15 @@
   html, body {
     @apply bg-cs-bg text-cs-text-primary antialiased;
   }
+
+  /* iOS Safari dá zoom automático em qualquer input focado com font-size < 16px.
+     Isso afeta especialmente o formulário de proposta comercial (#contato). */
+  @media (max-width: 767px) {
+    input, select, textarea {
+      font-size: 16px !important;
+      line-height: 1.4 !important;
+    }
+  }
 }
 
 @layer utilities {

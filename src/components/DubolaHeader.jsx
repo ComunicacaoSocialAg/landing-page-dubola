@@ -165,7 +165,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
           alt="DUBOLA Logo" 
           className={`h-9 sm:h-10 w-auto object-contain logo-glow transition-transform duration-500 group-hover:scale-[1.02] ${isLight ? 'brightness-[0.15]' : ''}`} 
         />
-        <span className={`hidden lg:inline-block text-[8px] font-space-premium font-bold tracking-[0.2em] border px-2 py-0.5 rounded-full uppercase ml-1 ${isLight ? 'border-[#ff003c]/40 text-[#ff003c] bg-[#ff003c]/5' : 'border-[#ff003c]/30 text-[#ff003c] bg-[#ff003c]/5'}`}>
+        <span className={`hidden lg:inline-block text-[10px] font-space-premium font-bold tracking-[0.2em] border px-2 py-0.5 rounded-full uppercase ml-1 ${isLight ? 'border-[#ff003c]/40 text-[#ff003c] bg-[#ff003c]/5' : 'border-[#ff003c]/30 text-[#ff003c] bg-[#ff003c]/5'}`}>
           EST. 1998
         </span>
       </Link>
@@ -278,7 +278,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
           <div className="relative flex items-center bg-zinc-900/80 border border-white/[0.06] rounded-xl p-1 gap-1">
             <button
               onClick={() => setB2bMode(false)}
-              className={`px-3 py-1.5 rounded-lg text-[8px] font-space-premium font-black tracking-widest uppercase transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-[10px] font-space-premium font-black tracking-widest uppercase transition-all ${
                 !b2bMode
                   ? 'bg-white text-black shadow-sm'
                   : 'text-zinc-500 hover:text-zinc-300'
@@ -288,7 +288,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
             </button>
             <button
               onClick={() => setB2bMode(true)}
-              className={`px-3 py-1.5 rounded-lg text-[8px] font-space-premium font-black tracking-widest uppercase transition-all ${
+              className={`px-3 py-1.5 rounded-lg text-[10px] font-space-premium font-black tracking-widest uppercase transition-all ${
                 b2bMode
                   ? 'bg-[#ff003c] text-white shadow-[0_0_12px_rgba(255,0,60,0.3)]'
                   : 'text-zinc-500 hover:text-zinc-300'
@@ -303,7 +303,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
               href="https://wa.me/5521998487779?text=Olá!%20Gostaria%20de%20falar%20com%20a%20equipe%20de%20vendas%20da%20Dubola%20Alimentos." 
               target="_blank"
               rel="noopener noreferrer"
-              className={`text-[8px] font-space-premium font-bold tracking-widest border px-4 py-2.5 rounded-xl transition-all uppercase ${
+              className={`text-[10px] font-space-premium font-bold tracking-widest border px-4 py-2.5 rounded-xl transition-all uppercase ${
                 isLight
                   ? 'border-[#ff003c]/40 hover:border-[#ff003c] text-[#ff003c] bg-[#ff003c]/5 hover:bg-[#ff003c]/10'
                   : 'border-[#ff003c]/40 hover:border-[#ff003c]/60 text-white bg-[#ff003c]/10 hover:bg-[#ff003c]/20'
@@ -314,7 +314,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
           ) : (
             <Link 
               to="/vendas-b2b" 
-              className={`text-[8px] font-space-premium font-bold tracking-widest border border-white/20 hover:border-[#ff003c]/60 text-white bg-white/5 hover:bg-[#ff003c]/15 px-4 py-2.5 rounded-xl transition-all ${isB2bPage ? 'border-[#ff003c]/60 bg-[#ff003c]/10' : ''}`}
+              className={`text-[10px] font-space-premium font-bold tracking-widest border border-white/20 hover:border-[#ff003c]/60 text-white bg-white/5 hover:bg-[#ff003c]/15 px-4 py-2.5 rounded-xl transition-all ${isB2bPage ? 'border-[#ff003c]/60 bg-[#ff003c]/10' : ''}`}
             >
               ÁREA COMERCIAL B2B
             </Link>
@@ -416,7 +416,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
               <span className="text-[10px] text-zinc-450 uppercase">Visualização:</span>
               <button 
                 onClick={() => setB2bMode(!b2bMode)}
-                className={`text-[9px] px-4 py-2 border rounded-xl font-bold tracking-wider ${
+                className={`text-[11px] px-4 py-2 border rounded-xl font-bold tracking-wider ${
                   b2bMode ? 'border-[#ff003c] text-white bg-[#ff003c]/10' : 'border-zinc-800 text-zinc-400 bg-zinc-900/40'
                 }`}
               >
@@ -433,7 +433,7 @@ export default function DubolaHeader({ b2bMode, setB2bMode, forceLight, isDarkMo
                   toggleTheme();
                   setMobileMenuOpen(false);
                 }}
-                className="text-[9px] px-4 py-2 border border-zinc-800 rounded-xl font-bold tracking-wider text-zinc-400 bg-zinc-900/40 flex items-center gap-1.5"
+                className="text-[11px] px-4 py-2 border border-zinc-800 rounded-xl font-bold tracking-wider text-zinc-400 bg-zinc-900/40 flex items-center gap-1.5"
                 type="button"
               >
                 {isDarkMode ? <Sun size={11} /> : <Moon size={11} />}

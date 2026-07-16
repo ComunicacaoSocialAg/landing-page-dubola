@@ -17,7 +17,7 @@ export default function DubolaFooter() {
 
         {/* Sitemap Navigation Links */}
         <div className="md:col-span-3 space-y-4 text-left">
-          <h5 className="font-space-premium font-bold text-[9px] text-zinc-600 uppercase tracking-[0.25em]">Navegação</h5>
+          <h5 className="font-space-premium font-bold text-[11px] text-zinc-600 uppercase tracking-[0.25em]">Navegação</h5>
           <ul className="space-y-2 text-[11px] font-sans-premium text-zinc-600">
             {isB2bMode ? (
               <>
@@ -41,7 +41,7 @@ export default function DubolaFooter() {
 
         {/* Logistics and Contact Info */}
         <div className="md:col-span-3 space-y-4 text-left">
-          <h5 className="font-space-premium font-bold text-[9px] text-zinc-600 uppercase tracking-[0.25em]">Contato & Logística</h5>
+          <h5 className="font-space-premium font-bold text-[11px] text-zinc-600 uppercase tracking-[0.25em]">Contato & Logística</h5>
           <ul className="space-y-2 text-[11px] font-sans-premium text-zinc-650">
             <li>comercial@dubola.com.br</li>
             <li>0800 555 9812</li>
@@ -51,7 +51,7 @@ export default function DubolaFooter() {
 
         {/* Social Networks Links */}
         <div className="md:col-span-2 space-y-4 text-left">
-          <h5 className="font-space-premium font-bold text-[9px] text-zinc-600 uppercase tracking-[0.25em]">Redes</h5>
+          <h5 className="font-space-premium font-bold text-[11px] text-zinc-600 uppercase tracking-[0.25em]">Redes</h5>
           <ul className="space-y-2 text-[11px] font-sans-premium text-zinc-650">
             <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
             <li><a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a></li>
@@ -60,7 +60,7 @@ export default function DubolaFooter() {
       </div>
 
       {/* Copyright Bar */}
-      <div className="max-w-7xl mx-auto border-t border-zinc-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[9px] font-space-premium font-bold text-zinc-700 tracking-[0.2em] uppercase">
+      <div className="max-w-7xl mx-auto border-t border-zinc-900 pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-[11px] font-space-premium font-bold text-zinc-700 tracking-[0.2em] uppercase">
         <p>© {new Date().getFullYear()} Dubola Molhos Especiais Ltda. Todos os direitos reservados.</p>
         <p className="flex items-center gap-1.5">
           Desenvolvido com <span className="text-[#ff003c]">❤</span> para cozinhas de excelência
