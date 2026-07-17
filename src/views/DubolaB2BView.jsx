@@ -937,11 +937,11 @@ Gostaria de solicitar proposta B2B para:
                 alt="DUBOLA Logo" 
                 className="w-full h-auto object-contain filter drop-shadow-[0_4px_12px_rgba(0,0,0,0.5)]" 
               />
-              <div className="hero-handwriting opacity-0 w-[85%] mt-1">
+              <div className="hero-handwriting opacity-0 w-[160%] mt-3">
                 <img 
                   src="/como-deve-ser-branco.png" 
                   alt="Como deve ser." 
-                  className="w-full h-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] transform -rotate-3" 
+                  className="w-full h-auto object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)] transform -rotate-4" 
                 />
               </div>
             </div>
@@ -984,12 +984,12 @@ Gostaria de solicitar proposta B2B para:
             </div>
             
             {/* Subtitle Column */}
-            <div className="lg:col-span-5 lg:text-right manifesto-header-right opacity-0 w-full flex flex-row lg:flex-row-reverse items-center justify-start lg:justify-end gap-4">
+            <div className="lg:col-span-5 lg:text-right manifesto-header-right opacity-0 w-full flex flex-row lg:flex-row-reverse items-center justify-start lg:justify-end gap-4 sm:gap-6 lg:gap-8">
               <p className="font-cheddar text-xl sm:text-2xl lg:text-[2rem] leading-none tracking-tight text-white uppercase">
                 A DUBOLA NASCEU PARA RESGATAR<br />
                 A AUTENTICIDADE DOS SABORES.
               </p>
-              <div className="w-[110px] sm:w-[130px] shrink-0 select-none manifesto-cursive opacity-0">
+              <div className="w-[180px] sm:w-[220px] lg:w-[240px] shrink-0 select-none manifesto-cursive opacity-0">
                 <img 
                   src="/como-deve-ser-branco.png" 
                   alt="Como deve ser" 
